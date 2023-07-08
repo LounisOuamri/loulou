@@ -5,13 +5,14 @@
   <style>
     body {
       font-family: "Lato", Arial, sans-serif;
-      padding: 40px;
+      padding: 10px;
       background-color: rgb(0, 0, 0);
       color: rgb(255, 255, 255);
     }
     
     h1 {
       text-align: center;
+      font-size: 60px;
     }
     
     .search-container {
@@ -20,8 +21,8 @@
     }
     
     #rechercheInput {
-      padding: 5px;
-      width: 250px;
+      padding: 10px;
+      width: 400px;
     }
     
     #listeFilms {
@@ -30,22 +31,27 @@
     }
     
     .film-item {
-      margin-bottom: 10px;
-      padding: 10px;
-      border: 1px solid #ccc;
-      background-color: #f9f9f9;
-      color: black;
+      display: flex; 
+     align-items: center;
+     justify-content: space-between;
+      margin-bottom: 5px;
+      padding: 5px;
+      border: 0px solid rgb(107, 107, 107);
+      background-color: rgb(255, 255, 255); /* Ajout de l'opacité */
+      color: rgb(0, 0, 0);
+      opacity: 70%;
     }
     
     .film-title {
-      font-size: 18px;
+      font-size: px;
       font-weight: bold;
       margin: 0;
     }
     
     .film-details {
-      margin-top: 5px;
-      font-size: 14px;
+      margin-top: 0px;
+      font-size: 20px;
+      float: right;
     }
     
     .nav-bar {
@@ -61,12 +67,12 @@
     #bouton-haut {
       display: none;
       position: fixed;
-      bottom: 20px;
+      bottom: 5px;
       left: 50%;
       transform: translateX(-50%);
       padding: 10px;
-      background-color: #f9f9f9;
-      color: black;
+      background-color: #000000;
+      color: rgb(255, 255, 255);
       border: none;
       cursor: pointer;
       font-size: 20px;
@@ -1630,5 +1636,20 @@ boutonPartage.addEventListener('click', function() {
   });
 });
 </script>
+<script>
+  window.addEventListener('scroll', function() {
+    var boutonHaut = document.getElementById('bouton-haut');
+    if (window.scrollY > 1) {
+      boutonHaut.style.display = 'block';
+    } else {
+      boutonHaut.style.display = 'none';
+    }
+  });
+
+  function remonterEnHaut() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>
+
 </body>
 </html>
