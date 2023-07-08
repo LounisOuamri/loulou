@@ -1575,9 +1575,9 @@
  // Tableau des couleurs de fond
  var colors = ["color1", "color2", "color3", "color4", "color5"];
 
-function updateBackgroundColor() {
-  var scrollTop = document.documentElement.scrollTop;
-  var maxScrollTop = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+ function updateBackgroundColor() {
+  var scrollTop = window.scrollY;
+  var maxScrollTop = document.documentElement.scrollHeight - window.innerHeight;
   var scrollFraction = scrollTop / maxScrollTop;
   var colorIndex = Math.floor(scrollFraction * colors.length);
 
