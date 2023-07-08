@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Loulou's Films</title>
+  <title>LOULOU'S FILMS</title>
   <style>
     body {
       font-family: "Lato", Arial, sans-serif;
@@ -9,16 +9,24 @@
       background-color: rgb(0, 0, 0);
       color: rgb(255, 255, 255);
     }
-    
-    h1 {
+    @font-face {
+      font-family: "UNDERRATED-UltraBold Personal Use";
+      src: url('UNDERRATED-UltraBold Personal Use.otf') format('opentype'); /* Chemin vers le fichier .otf */
+    }
+
+
+      h1 {
+      font-family: "UNDERRATED-UltraBold Personal Use", Arial, sans-serif;
       text-align: center;
       font-size: 60px;
+      text-transform: uppercase;
     }
     
     .search-container {
       text-align: center;
       margin-bottom: 20px;
     }
+    
     
     #rechercheInput {
       padding: 10px;
@@ -39,11 +47,11 @@
       border: 0px solid rgb(107, 107, 107);
       background-color: rgb(255, 255, 255); /* Ajout de l'opacité */
       color: rgb(0, 0, 0);
-      opacity: 85%;
+      opacity: 70%;
     }
     
     .film-title {
-      font-size: px;
+      font-size: 30px;
       font-weight: bold;
       margin: 0;
     }
@@ -58,10 +66,16 @@
       display: flex;
       justify-content: center;
       margin-bottom: 10px;
+      
     }
     
     .nav-bar button {
       margin-right: 10px;
+      font-family: "Lato", Arial, sans-serif;
+      background-color: rgb(255, 255, 255); /* Ajout de l'opacité */
+      color: rgb(36, 36, 36);
+      opacity: 100%;
+      border: none;
     }
     
     #bouton-haut {
