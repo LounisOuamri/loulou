@@ -8,62 +8,57 @@
       padding: 40px;
       background-color: rgb(0, 0, 0);
       color: rgb(255, 255, 255);
-      transition: background-color 0.5s;
-      background-image: linear-gradient(to bottom right, #020202,#343434,#a7a7a7,#343434,#000000);
-      background-size: 200% 200%;
-      animation: gradientAnimation 15s ease infinite;
     }
-@keyframes gradientAnimation {
-      0% {
-        background-position: 0% 0%;
-      }
-      50% {
-        background-position: 100% 100%;
-      }
-      100% {
-        background-position: 0% 0%;
-      }
-    }
+    
     h1 {
       text-align: center;
     }
-.search-container {
+    
+    .search-container {
       text-align: center;
       margin-bottom: 20px;
     }
-#rechercheInput {
+    
+    #rechercheInput {
       padding: 5px;
       width: 250px;
     }
-#listeFilms {
+    
+    #listeFilms {
       list-style-type: none;
       padding: 0;
     }
-.film-item {
+    
+    .film-item {
       margin-bottom: 10px;
       padding: 10px;
       border: 1px solid #ccc;
       background-color: #f9f9f9;
       color: black;
     }
-.film-title {
+    
+    .film-title {
       font-size: 18px;
       font-weight: bold;
       margin: 0;
     }
-.film-details {
+    
+    .film-details {
       margin-top: 5px;
       font-size: 14px;
     }
-.nav-bar {
+    
+    .nav-bar {
       display: flex;
       justify-content: center;
       margin-bottom: 10px;
     }
-.nav-bar button {
+    
+    .nav-bar button {
       margin-right: 10px;
     }
-#bouton-haut {
+    
+    #bouton-haut {
       display: none;
       position: fixed;
       bottom: 20px;
@@ -76,10 +71,12 @@
       cursor: pointer;
       font-size: 20px;
     }
-#bouton-haut::before {
+    
+    #bouton-haut::before {
       content: "\2191";
     }
- #bouton-partage {
+    
+    #bouton-partage {
       position: fixed;
       top: 10px;
       right: 10px;
@@ -91,33 +88,56 @@
       display: flex;
       align-items: center;
     }
-#bouton-partage:hover {
+    
+    #bouton-partage:hover {
       background-color: #ccc;
     }
-#bouton-partage img {
+    
+    #bouton-partage img {
       width: 16px;
       height: 16px;
       margin-right: 5px;
     }
-    </style>
+    
+    .video-background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      overflow: hidden;
+    }
+
+    .video-background video {
+      min-width: 100%;
+      min-height: 100%;
+      object-fit: cover;
+    }
+  </style>
   <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
 </head>
 <body>
+  <div class="video-background">
+    <video autoplay loop muted>
+      <source src="video.mp4" type="video/mp4">
+    </video>
+  </div>
   <h1>Loulou's Films</h1>
-<div class="nav-bar">
+  <div class="nav-bar">
     <button onclick="triParTitre()">Trier par titre</button>
     <button onclick="triParDate()">Trier par date de sortie</button>
   </div>
-<div class="search-container">
+  <div class="search-container">
     <input type="text" id="rechercheInput" placeholder="Rechercher un film..." oninput="rechercher()">
   </div>
-<ul id="listeFilms"></ul>
-<a href="#haut-de-page" id="bouton-haut"></a>
+  <ul id="listeFilms"></ul>
+  <a href="#haut-de-page" id="bouton-haut"></a>
   <button id="bouton-partage">
     <img src="logo_partage.png" alt="Logo Partage">
     Partager
   </button>
-<script>
+  <script>
     var listeFilms = document.getElementById('listeFilms');
     var films = [
       {
