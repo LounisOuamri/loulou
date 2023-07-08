@@ -5,32 +5,26 @@
   <style>
     body {
       font-family: "Lato", Arial, sans-serif;
-      padding: 30px;
-      background-color: black;
-      color: white;
+      padding: 40px;
+      background-color: rgb(0, 0, 0);
+      color: rgb(255, 255, 255);
       transition: background-color 0.5s;
+      background-image: linear-gradient(to bottom, black, #303030, #595959, rgb(122, 122, 122), rgb(225, 225, 225));
+      background-size: 200% 200%;
+      animation: gradientAnimation 10s ease infinite;
     }
 
-    .color1 {
-      background-color: #000000;
+    @keyframes gradientAnimation {
+      0% {
+        background-position: 0% 0%;
+      }
+      50% {
+        background-position: 100% 100%;
+      }
+      100% {
+        background-position: 0% 0%;
+      }
     }
-
-    .color2 {
-      background-color: #003414;
-    }
-
-    .color3 {
-      background-color: #00540d;
-    }
-
-    .color4 {
-      background-color: #009f5d;
-    }
-
-    .color5 {
-      background-color: #00ff44;
-    }
-
     h1 {
       text-align: center;
     }
