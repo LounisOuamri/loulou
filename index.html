@@ -10,48 +10,47 @@
       color: white; /* Texte en blanc */
       transition: background-color 0.5s; /* Transition fluide pour le changement de couleur */
     }
-    
+
     /* Ajout de nouvelles classes CSS pour les différentes couleurs de fond */
     .color1 {
       background-color: #000000;
     }
-    
+
     .color2 {
       background-color: #ff0000;
     }
-    
+
     .color3 {
       background-color: #0004ff;
     }
-    
+
     .color4 {
       background-color: #00ff95;
     }
-    
+
     .color5 {
       background-color: #e5ff00;
     }
 
-    
     h1 {
       text-align: center;
     }
-    
+
     .search-container {
       text-align: center;
       margin-bottom: 20px;
     }
-    
+
     #rechercheInput {
       padding: 5px;
       width: 250px;
     }
-    
+
     #listeFilms {
       list-style-type: none;
       padding: 0;
     }
-    
+
     .film-item {
       margin-bottom: 10px;
       padding: 10px;
@@ -59,28 +58,28 @@
       background-color: #f9f9f9;
       color: black; /* Texte en noir */
     }
-    
+
     .film-title {
       font-size: 18px;
       font-weight: bold;
       margin: 0;
     }
-    
+
     .film-details {
       margin-top: 5px;
       font-size: 14px;
     }
-    
+
     .nav-bar {
       display: flex;
       justify-content: center;
       margin-bottom: 10px;
     }
-    
+
     .nav-bar button {
       margin-right: 10px;
     }
-    
+
     #bouton-haut {
       display: none;
       position: fixed;
@@ -94,11 +93,11 @@
       cursor: pointer;
       font-size: 20px;
     }
-    
+
     #bouton-haut::before {
       content: "\2191"; /* Code unicode de la flèche vers le haut */
     }
-    
+
     #bouton-partage {
       position: fixed;
       top: 10px;
@@ -111,18 +110,17 @@
       display: flex;
       align-items: center;
     }
-    
+
     #bouton-partage:hover {
       background-color: #ccc;
     }
-    
+
     #bouton-partage img {
       width: 16px;
       height: 16px;
       margin-right: 5px;
     }
   </style>
-  <script src="script.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -1574,105 +1572,108 @@
       "date": "2017"
     },
     ];
-// Tableau des couleurs de fond
-var colors = ["color1", "color2", "color3", "color4", "color5"];
-    
-    function updateBackgroundColor() {
-      var scrollTop = document.documentElement.scrollTop;
-      var maxScrollTop = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      var scrollFraction = scrollTop / maxScrollTop;
-      var colorIndex = Math.floor(scrollFraction * colors.length);
-      
-      // Appliquer la classe CSS correspondante à la couleur de fond
-      document.body.className = colors[colorIndex];
+ // Tableau des couleurs de fond
+ var colors = ["color1", "color2", "color3", "color4", "color5"];
+
+function updateBackgroundColor() {
+  var scrollTop = document.documentElement.scrollTop;
+  var maxScrollTop = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  var scrollFraction = scrollTop / maxScrollTop;
+  var colorIndex = Math.floor(scrollFraction * colors.length);
+
+  // Appliquer la classe CSS correspondante à la couleur de fond
+  document.body.className = colors[colorIndex];
+}
+
+function rechercher() {
+  var recherche = document.getElementById('rechercheInput').value.toLowerCase();
+  listeFilms.innerHTML = '';
+
+  for (var i = 0; i < films.length; i++) {
+    var film = films[i];
+    if (film.titre.toLowerCase().includes(recherche)) {
+      var li = document.createElement('li');
+      li.classList.add('film-item');
+
+      var titleElement = document.createElement('h2');
+      titleElement.classList.add('film-title');
+      titleElement.textContent = film.titre;
+
+      var detailsElement = document.createElement('p');
+      detailsElement.classList.add('film-details');
+      detailsElement.textContent = 'Date de sortie : ' + film.date;
+
+      li.appendChild(titleElement);
+      li.appendChild(detailsElement);
+      listeFilms.appendChild(li);
     }
-    function rechercher() {
-      var recherche = document.getElementById('rechercheInput').value.toLowerCase();
-      listeFilms.innerHTML = '';
+  }
+}
 
-      for (var i = 0; i < films.length; i++) {
-        var film = films[i];
-        if (film.titre.toLowerCase().includes(recherche)) {
-          var li = document.createElement('li');
-          li.classList.add('film-item');
+function triParTitre() {
+  films.sort(function(a, b) {
+    return a.titre.localeCompare(b.titre);
+  });
+  afficherFilms();
+}
 
-          var titleElement = document.createElement('h2');
-          titleElement.classList.add('film-title');
-          titleElement.textContent = film.titre;
+function triParDate() {
+  films.sort(function(a, b) {
+    return a.date.localeCompare(b.date);
+  });
+  afficherFilms();
+}
 
-          var detailsElement = document.createElement('p');
-          detailsElement.classList.add('film-details');
-          detailsElement.textContent = 'Date de sortie : ' + film.date;
+var totalFilmsElement = document.createElement('p');
+totalFilmsElement.textContent = 'Total films : ' + films.length;
+document.body.insertBefore(totalFilmsElement, listeFilms);
 
-          li.appendChild(titleElement);
-          li.appendChild(detailsElement);
-          listeFilms.appendChild(li);
-        }
-      }
-    }
+function afficherFilms() {
+  listeFilms.innerHTML = '';
+  for (var i = 0; i < films.length; i++) {
+    var film = films[i];
+    var li = document.createElement('li');
+    li.classList.add('film-item');
 
-    function triParTitre() {
-      films.sort(function(a, b) {
-        return a.titre.localeCompare(b.titre);
-      });
-      afficherFilms();
-    }
+    var titleElement = document.createElement('h2');
+    titleElement.classList.add('film-title');
+    titleElement.textContent = film.titre;
 
-    function triParDate() {
-      films.sort(function(a, b) {
-        return a.date.localeCompare(b.date);
-      });
-      afficherFilms();
-    }
+    var detailsElement = document.createElement('p');
+    detailsElement.classList.add('film-details');
+    detailsElement.textContent = 'Date de sortie : ' + film.date;
 
-    var totalFilmsElement = document.createElement('p');
-    totalFilmsElement.textContent = 'Total films : ' + films.length;
-    document.body.insertBefore(totalFilmsElement, listeFilms);
+    li.appendChild(titleElement);
+    li.appendChild(detailsElement);
+    listeFilms.appendChild(li);
+  }
+}
 
-    function afficherFilms() {
-      listeFilms.innerHTML = '';
-      for (var i = 0; i < films.length; i++) {
-        var film = films[i];
-        var li = document.createElement('li');
-        li.classList.add('film-item');
+afficherFilms();
+var boutonHaut = document.getElementById("bouton-haut");
 
-        var titleElement = document.createElement('h2');
-        titleElement.classList.add('film-title');
-        titleElement.textContent = film.titre;
+window.onscroll = function() {
+  if (document.documentElement.scrollTop > 20) {
+    boutonHaut.style.display = "block";
+  } else {
+    boutonHaut.style.display = "none";
+  }
+};
 
-        var detailsElement = document.createElement('p');
-        detailsElement.classList.add('film-details');
-        detailsElement.textContent = 'Date de sortie : ' + film.date;
+boutonHaut.addEventListener("click", function() {
+  document.documentElement.scrollTop = 0;
+});
 
-        li.appendChild(titleElement);
-        li.appendChild(detailsElement);
-        listeFilms.appendChild(li);
-      }
-    }
+var boutonPartage = document.getElementById('bouton-partage');
 
-    afficherFilms();
-    var boutonHaut = document.getElementById("bouton-haut");
+boutonPartage.addEventListener('click', function() {
+  var url = window.location.href;
+  navigator.clipboard.writeText(url).then(function() {
+    alert('Le lien a été copié dans le presse-papier.');
+  });
+});
 
-    window.onscroll = function() {
-      if (document.documentElement.scrollTop > 20) {
-        boutonHaut.style.display = "block";
-      } else {
-        boutonHaut.style.display = "none";
-      }
-    };
-
-    boutonHaut.addEventListener("click", function() {
-      document.documentElement.scrollTop = 0;
-    });
-
-    var boutonPartage = document.getElementById('bouton-partage');
-
-    boutonPartage.addEventListener('click', function() {
-      var url = window.location.href;
-      navigator.clipboard.writeText(url).then(function() {
-        alert('Le lien a été copié dans le presse-papier.');
-      });
-    });
-  </script>
+window.addEventListener("scroll", updateBackgroundColor); // Ajout de l'événement de défilement
+</script>
 </body>
 </html>
