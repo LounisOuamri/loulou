@@ -13,8 +13,7 @@
       background-size: 200% 200%;
       animation: gradientAnimation 10s ease infinite;
     }
-
-    @keyframes gradientAnimation {
+@keyframes gradientAnimation {
       0% {
         background-position: 0% 0%;
       }
@@ -28,52 +27,43 @@
     h1 {
       text-align: center;
     }
-
-    .search-container {
+.search-container {
       text-align: center;
       margin-bottom: 20px;
     }
-
-    #rechercheInput {
+#rechercheInput {
       padding: 5px;
       width: 250px;
     }
-
-    #listeFilms {
+#listeFilms {
       list-style-type: none;
       padding: 0;
     }
-
-    .film-item {
+.film-item {
       margin-bottom: 10px;
       padding: 10px;
       border: 1px solid #ccc;
       background-color: #f9f9f9;
       color: black;
     }
-
-    .film-title {
+.film-title {
       font-size: 18px;
       font-weight: bold;
       margin: 0;
     }
-
-    .film-details {
+.film-details {
       margin-top: 5px;
       font-size: 14px;
     }
-
-    .nav-bar {
+.nav-bar {
       display: flex;
       justify-content: center;
       margin-bottom: 10px;
     }
-
-    .nav-bar button {
+.nav-bar button {
       margin-right: 10px;
     }
-
-    #bouton-haut {
+#bouton-haut {
       display: none;
       position: fixed;
       bottom: 20px;
@@ -86,12 +76,10 @@
       cursor: pointer;
       font-size: 20px;
     }
-
-    #bouton-haut::before {
+#bouton-haut::before {
       content: "\2191";
     }
-
-    #bouton-partage {
+ #bouton-partage {
       position: fixed;
       top: 10px;
       right: 10px;
@@ -103,41 +91,33 @@
       display: flex;
       align-items: center;
     }
-
-    #bouton-partage:hover {
+#bouton-partage:hover {
       background-color: #ccc;
     }
-
-    #bouton-partage img {
+#bouton-partage img {
       width: 16px;
       height: 16px;
       margin-right: 5px;
     }
-    
-  </style>
+    </style>
   <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
 </head>
 <body>
   <h1>Loulou's Films</h1>
-
-  <div class="nav-bar">
+<div class="nav-bar">
     <button onclick="triParTitre()">Trier par titre</button>
     <button onclick="triParDate()">Trier par date de sortie</button>
   </div>
-
-  <div class="search-container">
+<div class="search-container">
     <input type="text" id="rechercheInput" placeholder="Rechercher un film..." oninput="rechercher()">
   </div>
-
-  <ul id="listeFilms"></ul>
-
-  <a href="#haut-de-page" id="bouton-haut"></a>
+<ul id="listeFilms"></ul>
+<a href="#haut-de-page" id="bouton-haut"></a>
   <button id="bouton-partage">
     <img src="logo_partage.png" alt="Logo Partage">
     Partager
   </button>
-
-  <script>
+<script>
     var listeFilms = document.getElementById('listeFilms');
     var films = [
       {
@@ -1565,108 +1545,70 @@
       "date": "2017"
     },
     ];
- // Tableau des couleurs de fond
- var colors = ["color1", "color2", "color3", "color4", "color5"];
-
- function updateBackgroundColor() {
-  var scrollTop = window.scrollY;
-  var maxScrollTop = document.documentElement.scrollHeight - window.innerHeight;
-  var scrollFraction = scrollTop / maxScrollTop;
-  var colorIndex = Math.floor(scrollFraction * colors.length);
-
-  // Appliquer la classe CSS correspondante à la couleur de fond
-  document.body.className = colors[colorIndex];
-}
-
 function rechercher() {
   var recherche = document.getElementById('rechercheInput').value.toLowerCase();
   listeFilms.innerHTML = '';
-
-  for (var i = 0; i < films.length; i++) {
+for (var i = 0; i < films.length; i++) {
     var film = films[i];
     if (film.titre.toLowerCase().includes(recherche)) {
       var li = document.createElement('li');
       li.classList.add('film-item');
-
-      var titleElement = document.createElement('h2');
+var titleElement = document.createElement('h2');
       titleElement.classList.add('film-title');
       titleElement.textContent = film.titre;
-
-      var detailsElement = document.createElement('p');
+var detailsElement = document.createElement('p');
       detailsElement.classList.add('film-details');
       detailsElement.textContent = 'Date de sortie : ' + film.date;
-
-      li.appendChild(titleElement);
+li.appendChild(titleElement);
       li.appendChild(detailsElement);
       listeFilms.appendChild(li);
     }
   }
 }
-
 function triParTitre() {
   films.sort(function(a, b) {
     return a.titre.localeCompare(b.titre);
   });
   afficherFilms();
 }
-
 function triParDate() {
   films.sort(function(a, b) {
     return a.date.localeCompare(b.date);
   });
   afficherFilms();
 }
-
 var totalFilmsElement = document.createElement('p');
 totalFilmsElement.textContent = 'Total films : ' + films.length;
 document.body.insertBefore(totalFilmsElement, listeFilms);
-
 function afficherFilms() {
   listeFilms.innerHTML = '';
   for (var i = 0; i < films.length; i++) {
     var film = films[i];
     var li = document.createElement('li');
     li.classList.add('film-item');
-
-    var titleElement = document.createElement('h2');
+ var titleElement = document.createElement('h2');
     titleElement.classList.add('film-title');
     titleElement.textContent = film.titre;
-
-    var detailsElement = document.createElement('p');
+var detailsElement = document.createElement('p');
     detailsElement.classList.add('film-details');
     detailsElement.textContent = 'Date de sortie : ' + film.date;
-
-    li.appendChild(titleElement);
+li.appendChild(titleElement);
     li.appendChild(detailsElement);
     listeFilms.appendChild(li);
   }
 }
-
 afficherFilms();
 var boutonHaut = document.getElementById("bouton-haut");
-
-window.onscroll = function() {
-  if (document.documentElement.scrollTop > 20) {
-    boutonHaut.style.display = "block";
-  } else {
-    boutonHaut.style.display = "none";
-  }
-};
-
 boutonHaut.addEventListener("click", function() {
   document.documentElement.scrollTop = 0;
 });
-
 var boutonPartage = document.getElementById('bouton-partage');
-
 boutonPartage.addEventListener('click', function() {
   var url = window.location.href;
   navigator.clipboard.writeText(url).then(function() {
     alert('Le lien a été copié dans le presse-papier.');
   });
 });
-
-window.addEventListener("scroll", updateBackgroundColor); // Ajout de l'événement de défilement
 </script>
 </body>
 </html>
