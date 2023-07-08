@@ -73,6 +73,28 @@
     #bouton-haut::before {
   content: "\2191"; /* Code unicode de la flèche vers le haut */
 }
+#bouton-partage {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      background-color: #f9f9f9;
+      color: black;
+      border: none;
+      cursor: pointer;
+      padding: 5px;
+      display: flex;
+      align-items: center;
+    }
+    
+    #bouton-partage:hover {
+      background-color: #ccc;
+    }
+    
+    #bouton-partage img {
+      width: 16px;
+      height: 16px;
+      margin-right: 5px;
+    }
 
   </style>
   <script src="script.js"></script>
@@ -93,6 +115,10 @@
   <ul id="listeFilms"></ul>
 
   <a href="#haut-de-page" id="bouton-haut"></a>
+  <button id="bouton-partage">
+    <img src="logo_partage.png" alt="Logo Partage">
+    Partager
+  </button>
   <script>
     // script.js
     var listeFilms = document.getElementById('listeFilms');
@@ -1600,6 +1626,14 @@
 
     boutonHaut.addEventListener("click", function() {
       document.documentElement.scrollTop = 0;
+    });
+    var boutonPartage = document.getElementById('bouton-partage');
+
+    boutonPartage.addEventListener('click', function() {
+      var url = window.location.href;
+      navigator.clipboard.writeText(url).then(function() {
+        alert('Le lien a été copié dans le presse-papier.');
+      });
     });
     </script>
 </body>
