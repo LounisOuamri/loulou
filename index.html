@@ -8,7 +8,30 @@
       padding: 30px;
       background-color: black; /* Arrière-plan noir */
       color: white; /* Texte en blanc */
+      transition: background-color 0.5s; /* Transition fluide pour le changement de couleur */
     }
+    
+    /* Ajout de nouvelles classes CSS pour les différentes couleurs de fond */
+    .color1 {
+      background-color: #000000;
+    }
+    
+    .color2 {
+      background-color: #ff0000;
+    }
+    
+    .color3 {
+      background-color: #0004ff;
+    }
+    
+    .color4 {
+      background-color: #00ff95;
+    }
+    
+    .color5 {
+      background-color: #e5ff00;
+    }
+
     
     h1 {
       text-align: center;
@@ -1551,7 +1574,18 @@
       "date": "2017"
     },
     ];
-
+// Tableau des couleurs de fond
+var colors = ["color1", "color2", "color3", "color4", "color5"];
+    
+    function updateBackgroundColor() {
+      var scrollTop = document.documentElement.scrollTop;
+      var maxScrollTop = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      var scrollFraction = scrollTop / maxScrollTop;
+      var colorIndex = Math.floor(scrollFraction * colors.length);
+      
+      // Appliquer la classe CSS correspondante à la couleur de fond
+      document.body.className = colors[colorIndex];
+    }
     function rechercher() {
       var recherche = document.getElementById('rechercheInput').value.toLowerCase();
       listeFilms.innerHTML = '';
