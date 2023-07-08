@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Loulou" Films</title>
+  <title>Loulou's Films</title>
   <style>
     body {
       font-family: "Lato", Arial, sans-serif;
@@ -57,6 +57,7 @@
     .nav-bar button {
       margin-right: 10px;
     }
+    
     #bouton-haut {
       display: none;
       position: fixed;
@@ -70,10 +71,12 @@
       cursor: pointer;
       font-size: 20px;
     }
+    
     #bouton-haut::before {
-  content: "\2191"; /* Code unicode de la flèche vers le haut */
-}
-#bouton-partage {
+      content: "\2191"; /* Code unicode de la flèche vers le haut */
+    }
+    
+    #bouton-partage {
       position: fixed;
       top: 10px;
       right: 10px;
@@ -95,7 +98,6 @@
       height: 16px;
       margin-right: 5px;
     }
-
   </style>
   <script src="script.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
@@ -119,6 +121,7 @@
     <img src="logo_partage.png" alt="Logo Partage">
     Partager
   </button>
+
   <script>
     // script.js
     var listeFilms = document.getElementById('listeFilms');
@@ -1550,71 +1553,71 @@
     ];
 
     function rechercher() {
-            var recherche = document.getElementById('rechercheInput').value.toLowerCase();
-            listeFilms.innerHTML = '';
+      var recherche = document.getElementById('rechercheInput').value.toLowerCase();
+      listeFilms.innerHTML = '';
 
-            for (var i = 0; i < films.length; i++) {
-                var film = films[i];
-                if (film.titre.toLowerCase().includes(recherche)) {
-                    var li = document.createElement('li');
-                    li.classList.add('film-item');
+      for (var i = 0; i < films.length; i++) {
+        var film = films[i];
+        if (film.titre.toLowerCase().includes(recherche)) {
+          var li = document.createElement('li');
+          li.classList.add('film-item');
 
-                    var titleElement = document.createElement('h2');
-                    titleElement.classList.add('film-title');
-                    titleElement.textContent = film.titre;
+          var titleElement = document.createElement('h2');
+          titleElement.classList.add('film-title');
+          titleElement.textContent = film.titre;
 
-                    var detailsElement = document.createElement('p');
-                    detailsElement.classList.add('film-details');
-                    detailsElement.textContent = 'Date de sortie : ' + film.date;
+          var detailsElement = document.createElement('p');
+          detailsElement.classList.add('film-details');
+          detailsElement.textContent = 'Date de sortie : ' + film.date;
 
-                    li.appendChild(titleElement);
-                    li.appendChild(detailsElement);
-                    listeFilms.appendChild(li);
-                }
-            }
+          li.appendChild(titleElement);
+          li.appendChild(detailsElement);
+          listeFilms.appendChild(li);
         }
+      }
+    }
 
-        function triParTitre() {
-            films.sort(function(a, b) {
-                return a.titre.localeCompare(b.titre);
-            });
-            afficherFilms();
-        }
+    function triParTitre() {
+      films.sort(function(a, b) {
+        return a.titre.localeCompare(b.titre);
+      });
+      afficherFilms();
+    }
 
-        function triParDate() {
-            films.sort(function(a, b) {
-                return a.date.localeCompare(b.date);
-            });
-            afficherFilms();
-        }
+    function triParDate() {
+      films.sort(function(a, b) {
+        return a.date.localeCompare(b.date);
+      });
+      afficherFilms();
+    }
 
-        var totalFilmsElement = document.createElement('p');
-        totalFilmsElement.textContent = 'Total films : ' + films.length;
-        document.body.insertBefore(totalFilmsElement, listeFilms);
+    var totalFilmsElement = document.createElement('p');
+    totalFilmsElement.textContent = 'Total films : ' + films.length;
+    document.body.insertBefore(totalFilmsElement, listeFilms);
 
-        function afficherFilms() {
-            listeFilms.innerHTML = '';
-            for (var i = 0; i < films.length; i++) {
-                var film = films[i];
-                var li = document.createElement('li');
-                li.classList.add('film-item');
+    function afficherFilms() {
+      listeFilms.innerHTML = '';
+      for (var i = 0; i < films.length; i++) {
+        var film = films[i];
+        var li = document.createElement('li');
+        li.classList.add('film-item');
 
-                var titleElement = document.createElement('h2');
-                titleElement.classList.add('film-title');
-                titleElement.textContent = film.titre;
+        var titleElement = document.createElement('h2');
+        titleElement.classList.add('film-title');
+        titleElement.textContent = film.titre;
 
-                var detailsElement = document.createElement('p');
-                detailsElement.classList.add('film-details');
-                detailsElement.textContent = 'Date de sortie : ' + film.date;
+        var detailsElement = document.createElement('p');
+        detailsElement.classList.add('film-details');
+        detailsElement.textContent = 'Date de sortie : ' + film.date;
 
-                li.appendChild(titleElement);
-                li.appendChild(detailsElement);
-                listeFilms.appendChild(li);
-            }
-        }
+        li.appendChild(titleElement);
+        li.appendChild(detailsElement);
+        listeFilms.appendChild(li);
+      }
+    }
 
-        afficherFilms();
-        var boutonHaut = document.getElementById("bouton-haut");
+    afficherFilms();
+    var boutonHaut = document.getElementById("bouton-haut");
 
     window.onscroll = function() {
       if (document.documentElement.scrollTop > 20) {
@@ -1627,6 +1630,7 @@
     boutonHaut.addEventListener("click", function() {
       document.documentElement.scrollTop = 0;
     });
+
     var boutonPartage = document.getElementById('bouton-partage');
 
     boutonPartage.addEventListener('click', function() {
@@ -1635,6 +1639,6 @@
         alert('Le lien a été copié dans le presse-papier.');
       });
     });
-    </script>
+  </script>
 </body>
 </html>
