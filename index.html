@@ -57,6 +57,23 @@
     .nav-bar button {
       margin-right: 10px;
     }
+    #bouton-haut {
+      display: none;
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 10px;
+      background-color: #f9f9f9;
+      color: black;
+      border: none;
+      cursor: pointer;
+      font-size: 20px;
+    }
+    #bouton-haut::before {
+  content: "\2191"; /* Code unicode de la flèche vers le haut */
+}
+
   </style>
   <script src="script.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
@@ -75,6 +92,7 @@
 
   <ul id="listeFilms"></ul>
 
+  <a href="#haut-de-page" id="bouton-haut"></a>
   <script>
     // script.js
     var listeFilms = document.getElementById('listeFilms');
@@ -1570,6 +1588,19 @@
         }
 
         afficherFilms();
+        var boutonHaut = document.getElementById("bouton-haut");
+
+    window.onscroll = function() {
+      if (document.documentElement.scrollTop > 20) {
+        boutonHaut.style.display = "block";
+      } else {
+        boutonHaut.style.display = "none";
+      }
+    };
+
+    boutonHaut.addEventListener("click", function() {
+      document.documentElement.scrollTop = 0;
+    });
     </script>
 </body>
 </html>
