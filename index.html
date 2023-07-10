@@ -77,7 +77,20 @@
       opacity: 100%;
       border: none;
     }
-    
+    .arrow-up {
+      position: fixed;
+      bottom: 5px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 30px; /* Augmentez la taille de la flèche */
+      height: 30px; /* Augmentez la taille de la flèche */
+      background-image: url('arrow.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-color: transparent;
+      cursor: pointer;
+    }
+
     #bouton-haut {
       display: none;
       position: fixed;
@@ -86,18 +99,15 @@
       transform: translateX(-50%);
       padding: 10px;
       border: 0px solid rgb(107, 107, 107);
-      background-color: rgb(255, 255, 255); /* Ajout de l'opacité */
+      background-color: rgb(255, 255, 255,0); /* Ajout de l'opacité */
       color: rgb(0, 0, 0);
       opacity: 70%;
       cursor: pointer;
       font-size: 20px;
+
+      
     }
-    
-    #bouton-haut::before {
-      content: "\2191";
-    }
-    
-    #bouton-partage {
+ #bouton-partage {
       position: fixed;
       top: 10px;
       right: 10px;
@@ -135,6 +145,7 @@
       min-height: 100%;
       object-fit: cover;
     }
+
   </style>
   <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
 </head>
@@ -153,7 +164,7 @@
     <input type="text" id="rechercheInput" placeholder="Rechercher un film..." oninput="rechercher()">
   </div>
   <ul id="listeFilms"></ul>
-  <a href="#haut-de-page" id="bouton-haut"></a>
+  <div id="bouton-haut" class="arrow-up"></div>
   <button id="bouton-partage">
     <img src="logo_partage.png" alt="Logo Partage">
     Partager
