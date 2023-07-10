@@ -55,12 +55,21 @@
       font-weight: bold;
       margin: 0;
     }
-    
-    .film-details {
+    .film-imdb {
       margin-top: 0px;
-      font-size: 20px;
-      float: right;
-    }
+    font-size: 20px;
+    float: right;
+    display: flex;
+    align-items: right;
+  }
+    
+  .film-details {
+    margin-top: 0px;
+    font-size: 20px;
+    float: right;
+    display: flex;
+    align-items: center;
+  }
     
     .nav-bar {
       display: flex;
@@ -176,91 +185,114 @@
     var films = [
       {
   "titre": "Interstellar",
-  "date": "2014"
+  "date": "2014",
+  "imdb" : "8.9"
 },
 {
   "titre": "Forrest Gump",
-  "date": "1994"
+  "date": "1994",
+  "imdb" : "8.8"
+  
 },
 {
   "titre": "Schindler's List",
-  "date": "1993"
+  "date": "1993",
+  "imdb" : "8.9"
 },
 {
   "titre": "Inception",
-  "date": "2010"
+  "date": "2010",
+  "imdb" : "8.8"
 },
 {
   "titre": "Shutter Island",
-  "date": "2010"
+  "date": "2010",
+  "imdb" : "8.2"
 },
 {
   "titre": "The Green Mile",
-  "date": "1999"
+  "date": "1999",
+  "imdb" : "8.6"
 },
 {
   "titre": "The Shawshank Redemption",
-  "date": "1994"
+  "date": "1994",
+  "imdb" : "9.3"
 },
 {
   "titre": "Papillon",
-  "date": "1973"
+  "date": "1973",
+  "imdb" : "8.0"
 },
 {
   "titre": "Heat",
-  "date": "1995"
+  "date": "1995",
+  "imdb" : "8.2"
 },
 {
   "titre": "Gladiator",
-  "date": "2000"
+  "date": "2000",
+  "imdb" : "8.5"
 },
 {
   "titre": "Top Gun",
-  "date": "1986"
+  "date": "1986",
+  "imdb" : "6.9"
 },
 {
   "titre": "Top Gun: Maverick",
-  "date": "2022"
+  "date": "2022",
+  "imdb" : "8.9"
 },
 {
   "titre": "The Wolf of Wall Street",
-  "date": "2013"
+  "date": "2013",
+  "imdb" : "8.2"
 },
 {
   "titre": "The Godfather",
-  "date": "1972"
+  "date": "1972",
+  "imdb" : "9.2"
 },
 {
   "titre": "The Godfather Part II",
-  "date": "1974"
+  "date": "1974",
+  "imdb" : "9.0"
 },
 {
   "titre": "The Godfather Part III",
-  "date": "1990"
+  "date": "1990",
+  "imdb" : "7.6"
 },
 {
   "titre": "Titanic",
-  "date": "1997"
+  "date": "1997",
+  "imdb" : "7.8"
 },
 {
   "titre": "Scarface",
-  "date": "1983"
+  "date": "1983",
+  "imdb" : "8.3"
 },
 {
   "titre": "The Irishman",
-  "date": "2019"
+  "date": "2019",
+  "imdb" : "7,8"
 },
 {
   "titre": "Saving Private Ryan",
-  "date": "1998"
+  "date": "1998",
+  "imdb" : "8.6"
 },
 {
   "titre": "Mission Impossible",
-  "date": "1996"
+  "date": "1996",
+  "imdb" : "7.1"
 },
 {
   "titre": "Training Day",
-  "date": "2001"
+  "date": "2001",
+  "imdb" : "7.7"
 },
 {
   "titre": "Taxi Driver",
@@ -1610,10 +1642,14 @@ for (var i = 0; i < films.length; i++) {
 var titleElement = document.createElement('h2');
       titleElement.classList.add('film-title');
       titleElement.textContent = film.titre;
+      var imdbElement = document.createElement('p');
+      imdbElement.classList.add('film-imdb');
+      imdbElement.textContent = 'Note : ' + film.imdb;
 var detailsElement = document.createElement('p');
       detailsElement.classList.add('film-details');
       detailsElement.textContent = 'Date de sortie : ' + film.date;
 li.appendChild(titleElement);
+li.appendChild(imdbElement);
       li.appendChild(detailsElement);
       listeFilms.appendChild(li);
     }
@@ -1643,10 +1679,15 @@ function afficherFilms() {
  var titleElement = document.createElement('h2');
     titleElement.classList.add('film-title');
     titleElement.textContent = film.titre;
-var detailsElement = document.createElement('p');
+    var detailsElement = document.createElement('p');
     detailsElement.classList.add('film-details');
     detailsElement.textContent = 'Date de sortie : ' + film.date;
+    var imdbElement = document.createElement('p');
+    imdbElement.classList.add('film-imdb');
+    imdbElement.textContent = 'Note : ' + film.imdb;
+
 li.appendChild(titleElement);
+li.appendChild(imdbElement);
     li.appendChild(detailsElement);
     listeFilms.appendChild(li);
   }
