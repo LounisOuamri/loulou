@@ -147,6 +147,7 @@
   object-fit: cover;
 }
 
+
     
 
   </style>
@@ -176,7 +177,8 @@
     var films = [
       {
   "titre": "Interstellar",
-  "date": "2014"
+  "date": "2014",
+  "imdb": "8.9"
 },
 {
   "titre": "Forrest Gump",
@@ -1613,6 +1615,10 @@ var titleElement = document.createElement('h2');
 var detailsElement = document.createElement('p');
       detailsElement.classList.add('film-details');
       detailsElement.textContent = 'Date de sortie : ' + film.date;
+var filmNote = document.createElement('span');
+  filmNote.className = 'film-note';
+  filmNote.textContent = 'Note IMDb: ' + films[i].imdb;
+  filmItem.appendChild(filmNote);
 li.appendChild(titleElement);
       li.appendChild(detailsElement);
       listeFilms.appendChild(li);
@@ -1646,6 +1652,7 @@ function afficherFilms() {
 var detailsElement = document.createElement('p');
     detailsElement.classList.add('film-details');
     detailsElement.textContent = 'Date de sortie : ' + film.date;
+    
 li.appendChild(titleElement);
     li.appendChild(detailsElement);
     listeFilms.appendChild(li);
