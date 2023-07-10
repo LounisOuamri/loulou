@@ -2,15 +2,18 @@
 [
     {
       "titre": "Interstellar",
-      "date": 2014
+      "date": 2014,
+      "imdb": 8.6
     },
     {
       "titre": "Forrest Gump",
-      "date": "1994"
+      "date": "1994",
+      "imdb": 8.8
     },
     {
       "titre": "Schindler's List",
-      "date": "1993"
+      "date": "1993",
+      "imdb": 8.9
     },
     {
       "titre": "Inception",
