@@ -29,9 +29,12 @@
     
     
     #rechercheInput {
-      padding: 10px;
-      width: 400px;
-    }
+  padding: 10px;
+  width: 400px;
+  border: none;
+  border-radius: 50px;
+}
+
     
     #listeFilms {
       list-style-type: none;
@@ -93,12 +96,14 @@
     }
     
     .nav-bar button {
-      margin-right: 10px;
-      font-family: "Lato", Arial, sans-serif;
-      background-color: rgb(255, 255, 255); /* Ajout de l'opacité */
-      color: rgb(0, 0, 0);
-      opacity: 100%;
-      border: none
+  margin-right: 10px;
+  font-family: "Lato", Arial, sans-serif;
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  opacity: 100%;
+  border: none;
+  border-radius: 50px; /* Ajout de la bordure arrondie */
+  padding: 5px 10px; /* Ajout de la marge intérieure */
 }
     .arrow-up {
       position: fixed;
@@ -121,25 +126,27 @@
       left: 50%;
       transform: translateX(-50%);
       padding: 10px;
-      opacity: 55%;
+      opacity: 100%;
       cursor: pointer;
       font-size: 20px;
 
       
     }
- #bouton-partage {
-      position: fixed;
-      top: 10px;
-      right: 10px;
-      background-color: #f9f9f9;
-      color: black;
-      border: none;
-      cursor: pointer;
-      padding: 5px;
-      display: flex;
-      align-items: center;
-      font-family: "Lato", Arial, sans-serif;
-    }
+    #bouton-partage {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  padding: 5px 10px;
+  display: flex;
+  align-items: center;
+  font-family: "Lato", Arial, sans-serif;
+}
+
     
     #bouton-partage:hover {
       background-color: #ccc;
