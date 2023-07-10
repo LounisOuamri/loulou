@@ -44,34 +44,46 @@
     text-align: left; /* Ajout de la propriété text-align: center */
     flex-grow: 1; /* Ajout de la propriété flex-grow: 1 */
     opacity: 100%;
+    color: rgb(255, 255, 255);
   }
     
-    .film-item {
-      display: flex; 
-     align-items: center;
-     justify-content: space-between;
-      margin-bottom: 5px;
-      padding: 5px;
-      border: 0px solid rgb(107, 107, 107);
-      background-color: rgb(255, 255, 255); /* Ajout de l'opacité */
-      color: rgb(0, 0, 0);
-      opacity: 55%;
-    }
-    
+  .film-title {
+  font-size: 30px;
+  font-weight: bold;
+  margin: 0;
+  text-align: left;
+  flex-grow: 1;
+  opacity: 1; /* Vous pouvez supprimer le % après 100 */
+  color: rgb(255, 255, 255);
+}
 
-  .film-imdb {
-    font-size: 20px;
-    font-weight: bold;
-    margin-right: 10px;
-  }
-    
-  .film-details {
-    margin: 0px;
-    font-size: 20px;
-    float: right;
-    display: flex;
-    align-items: center;
-  }
+.film-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 5px;
+  padding: 5px;
+  border: 0px solid rgb(107, 107, 107);
+  background-color: rgba(0, 0, 0, 0.6); /* Définit l'opacité à 70% */
+  color: rgb(91, 91, 91);
+}
+
+.film-imdb {
+  font-size: 20px;
+  font-weight: bold;
+  margin-right: 10px;
+  color: rgb(255, 255, 255);
+}
+
+.film-details {
+  margin: 0px;
+  font-size: 20px;
+  float: right;
+  display: flex;
+  align-items: center;
+  color: rgb(255, 255, 255);
+}
+
     
     .nav-bar {
       display: flex;
@@ -109,7 +121,7 @@
       left: 50%;
       transform: translateX(-50%);
       padding: 10px;
-      opacity: 50%;
+      opacity: 55%;
       cursor: pointer;
       font-size: 20px;
 
