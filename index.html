@@ -169,6 +169,7 @@
   <div class="nav-bar">
     <button onclick="triParTitre()">Trier par titre</button>
     <button onclick="triParDate()">Trier par date de sortie</button>
+    <button onclick="triParNote()">Trier par note</button>
     
   </div>
   <div class="search-container">
@@ -1667,6 +1668,12 @@ function triParDate() {
   });
   afficherFilms();
 }
+function triParNote() {
+    films.sort(function(a, b) {
+      return parseFloat(b.imdb) - parseFloat(a.imdb);
+    });
+    afficherFilms();
+  }
 var totalFilmsElement = document.createElement('p');
 totalFilmsElement.textContent = 'Total films : ' + films.length;
 document.body.insertBefore(totalFilmsElement, listeFilms);
