@@ -197,6 +197,11 @@
     width: 60px; /* Ajustez la largeur selon vos besoins */
     height: auto; /* Ajustez la hauteur selon vos besoins */
   }
+  .button-hover {
+    cursor: pointer;
+  background-color: #ff0505;
+}
+
 
 </style>
   <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
@@ -208,10 +213,9 @@
   <h1>LOULOU'S MOVIES</h1>
   <img id="cinema-image" src="cinema.png" alt="Cinema Image">
   <div class="nav-bar">
-    <button onclick="triParTitre()">Trier par A-Z</button>
-    <button onclick="triParDate()">Trier par date de sortie</button>
-    <button onclick="triParNote()">Trier par note</button>
-    
+    <button onclick="triParTitre()" onmouseover="this.classList.add('button-hover')" onmouseout="this.classList.remove('button-hover')">Trier par A-Z</button>
+    <button onclick="triParDate()" onmouseover="this.classList.add('button-hover')" onmouseout="this.classList.remove('button-hover')">Trier par date de sortie</button>
+    <button onclick="triParNote()" onmouseover="this.classList.add('button-hover')" onmouseout="this.classList.remove('button-hover')">Trier par note</button>    
     <div class="search-container">
       <input type="text" id="rechercheInput" placeholder="Rechercher un film..." oninput="rechercher()">
       <label class="search-icon" for="rechercheInput"></label>
@@ -1706,18 +1710,21 @@ function triParTitre() {
   });
   afficherFilms();
 }
+
 function triParDate() {
   films.sort(function(a, b) {
     return a.date.localeCompare(b.date);
   });
   afficherFilms();
 }
+
 function triParNote() {
-    films.sort(function(a, b) {
-      return parseFloat(b.imdb) - parseFloat(a.imdb);
-    });
-    afficherFilms();
-  }
+  films.sort(function(a, b) {
+    return parseFloat(b.imdb) - parseFloat(a.imdb);
+  });
+  afficherFilms();
+}
+
 var totalFilmsElement = document.createElement('p');
 totalFilmsElement.textContent = 'Total films : ' + films.length;
 document.body.insertBefore(totalFilmsElement, listeFilms);
