@@ -1724,7 +1724,17 @@ function triParNote() {
   });
   afficherFilms();
 }
+var boutonTriNote = document.querySelector('button[onclick="triParNote()"]');
+  boutonTriNote.classList.remove('button-hover');
 
+
+boutonTriNote.addEventListener('mouseout', function() {
+  this.classList.remove('button-hover');
+});
+
+boutonTriNote.addEventListener('click', function() {
+  this.classList.toggle('button-hover');
+});
 var totalFilmsElement = document.createElement('p');
 totalFilmsElement.textContent = 'Total films : ' + films.length;
 document.body.insertBefore(totalFilmsElement, listeFilms);
