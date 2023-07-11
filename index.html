@@ -15,19 +15,9 @@
     }
     @font-face {
       font-family: "SF";
-      src: url('SF.ttf') format('truetype'); 
+      src: url('SF.otf') format('truetype'); 
     }
-    @font-face {
-      font-family: "gr";
-      src: url('gr.ttf') format('opentype'); 
-    }
-    @font-face {
-      font-family: "Google";
-      src: url('google.ttf') format('opentype'); 
-    }
-
-
-      h1 {
+ h1 {
       font-family: "UNDERRATED-UltraBold Personal Use", Arial, sans-serif;
       text-align: center;
       font-size: 60px;
@@ -64,14 +54,15 @@
       padding: 0;
     }
     .film-title {
-    font-size: 30px;
+    font-size: 32px;
     font-weight: bold;
     margin: 0;
     text-align: left; /* Ajout de la propriété text-align: center */
     flex-grow: 1; /* Ajout de la propriété flex-grow: 1 */
     opacity: 100%;
     color: rgb(255, 255, 255);
-    font-family: "Google", Arial, sans-serif;
+    font-family: "SF", Arial, sans-serif;
+    text-decoration: none;
   }
 
 
@@ -91,7 +82,7 @@
   font-weight: bold;
   margin-right: 15px;
   color: rgb(255, 255, 255);
-  font-family: "gr", Arial, sans-serif;
+  font-family: "SF", Arial, sans-serif;
 }
 
 .film-details {
@@ -101,7 +92,7 @@
   display: flex;
   align-items: center;
   color: rgb(224, 224, 224);
-  font-family: "gr", Arial, sans-serif;
+  font-family: "SF", Arial, sans-serif;
 }
 
     
@@ -235,7 +226,8 @@
       {
   "titre": "Interstellar",
   "date": "2014",
-  "imdb" : "8.9"
+  "imdb" : "8.9",
+  "lien": "https://www.imdb.com/title/tt0816692/"
 },
 {
   "titre": "Forrest Gump",
@@ -1744,9 +1736,11 @@ function afficherFilms() {
     var film = films[i];
     var li = document.createElement('li');
     li.classList.add('film-item');
- var titleElement = document.createElement('h2');
+    var titleElement = document.createElement('a');
     titleElement.classList.add('film-title');
     titleElement.textContent = film.titre;
+    titleElement.href = film.lien;
+    titleElement.target = "_blank";
     var detailsElement = document.createElement('p');
     detailsElement.classList.add('film-details');
     detailsElement.textContent = 'Date de sortie : ' + film.date;
@@ -1754,12 +1748,13 @@ function afficherFilms() {
     imdbElement.classList.add('film-imdb');
     imdbElement.textContent = 'Note : ' + film.imdb;
 
-li.appendChild(titleElement);
-li.appendChild(imdbElement);
+    li.appendChild(titleElement);
+    li.appendChild(imdbElement);
     li.appendChild(detailsElement);
     listeFilms.appendChild(li);
   }
 }
+
 afficherFilms();
 var boutonHaut = document.getElementById("bouton-haut");
 boutonHaut.addEventListener("click", function() {
