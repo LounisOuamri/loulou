@@ -187,7 +187,21 @@
     cursor: pointer;
   background-color: #ff0505;
 }
+#enjoy-section {
+  position: fixed;
+  bottom: -20px; /* Ajustez la distance depuis le bas de la page selon vos préférences */
+  left: 45%;
+  transform: translateX(-50%);
+  text-align: center;
+  color: #8b8b8b;
+  font-size: 24px;
+  font-weight: bold;
+  transition: opacity 0.5s ease; /* Ajoutez une transition d'opacité pour une apparition en douceur */
+}
 
+.hidden {
+  opacity: 0; /* Par défaut, la section est masquée */
+}
 
 </style>
   <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
@@ -204,6 +218,9 @@
     <div class="search-container">
       <input type="text" id="rechercheInput" placeholder="Rechercher un film..." oninput="rechercher()">
       <label class="search-icon" for="rechercheInput"></label>
+    </div>
+    <div id="enjoy-section" class="hidden">
+      <p>Enjoy :)</p>
     </div>
   </div>
   
@@ -2092,6 +2109,16 @@ boutonPartage.addEventListener('click', function() {
       boutonHaut.style.display = 'none';
     }
   });
+  window.addEventListener('scroll', function() {
+  var enjoySection = document.getElementById('enjoy-section');
+  var bottomOfPage = window.innerHeight + window.pageYOffset >= document.body.offsetHeight;
+
+  if (bottomOfPage) {
+    enjoySection.classList.remove('hidden');
+  } else {
+    enjoySection.classList.add('hidden');
+  }
+});
 
   function remonterEnHaut() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
