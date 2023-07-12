@@ -108,9 +108,19 @@
   border-radius: 100px; /* Ajout de la bordure arrondie */
   padding: 5px 10px; /* Ajout de la marge intérieure */
 }
-.button-hover {
- cursor: pointer;
+.button-active {
+  background-color: white;
+  color: black;
 }
+
+.button-hover {
+  cursor: pointer;
+  background-color: white;
+  color: black;
+}
+
+
+
     .arrow-up {
       position: fixed;
       bottom: 5px;
@@ -212,8 +222,8 @@
   <h1>LOULOU'S MOVIES</h1>
   <img id="cinema-image" src="cinema.png" alt="Cinema Image">
   <div class="nav-bar">
-    <button onclick="triParTitre()" onmouseover="this.classList.add('button-hover')" onmouseout="this.classList.remove('button-hover')">Trier par A-Z</button>
-    <button onclick="triParNote()" onmouseover="this.classList.add('button-hover')" onmouseout="this.classList.remove('button-hover')">Trier par note</button>    
+<button id="tri-titre" onclick="triParTitre()" onmouseover="this.classList.add('button-hover')" onmouseout="this.classList.remove('button-hover')">Trier par A-Z</button>
+<button id="tri-note" onclick="triParNote()" onmouseover="this.classList.add('button-hover')" onmouseout="this.classList.remove('button-hover')">Trier par note</button>
     <div class="search-container">
       <input type="text" id="rechercheInput" placeholder="Rechercher un film..." oninput="rechercher()">
       <label class="search-icon" for="rechercheInput"></label>
@@ -2185,6 +2195,7 @@
 "lien": "https://www.imdb.com/title/tt4505208/"
 }
 ];
+
 function rechercher() {
   var recherche = document.getElementById('rechercheInput').value.toLowerCase();
   listeFilms.innerHTML = '';
@@ -2304,6 +2315,5 @@ boutonPartage.addEventListener('click', function() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 </script>
-
 </body>
 </html>
