@@ -28,7 +28,6 @@
     .search-container {
   position: relative;
 }
-
 .search-icon {
   position: absolute;
   top: 50%;
@@ -46,8 +45,6 @@
   cursor: pointer;
   margin-right: 15px;
 }
-
-
 #rechercheInput {
   padding: 10px 10px 10px 30px; /* Ajoutez un padding à gauche pour laisser de l'espace à l'icône */
   width: 370px;
@@ -55,9 +52,7 @@
   border-radius: 100px;
   font-family: "SF", Arial, sans-serif;
 }
-
-    
-    #listeFilms {
+#listeFilms {
       list-style-type: none;
       padding: 0;
     }
@@ -72,8 +67,6 @@
     font-family: "SF", Arial, sans-serif;
     text-decoration: none;
   }
-
-
 .film-item {
   display: flex;
   align-items: center;
@@ -84,7 +77,6 @@
   background-image: linear-gradient(to right, rgba(0, 0, 0, 0.6), rgba(8, 0, 50, 0.4), rgba(83, 0, 58, 0.5));
   color: rgb(91, 91, 91);
 }
-
 .film-imdb {
   font-size: 23px;
   font-weight: bold;
@@ -92,13 +84,11 @@
   color: rgb(255, 255, 255);
   font-family: "SF", Arial, sans-serif;
 }
- .nav-bar {
+.nav-bar {
       display: flex;
       justify-content: center;
       margin-bottom: 10px;
-      
-    }
-    
+     }
     .nav-bar button {
   margin-right: 10px;
   font-family: "SF", Arial, sans-serif;
@@ -109,20 +99,12 @@
   border-radius: 100px; /* Ajout de la bordure arrondie */
   padding: 5px 10px; /* Ajout de la marge intérieure */
 }
-.button-active {
-  background-color: white;
-  color: black;
-}
-
 .button-hover {
   cursor: pointer;
   background-color: white;
   color: black;
 }
-
-
-
-    .arrow-up {
+.arrow-up {
       position: fixed;
       bottom: 5px;
       left: 50%;
@@ -135,8 +117,7 @@
       background-color: transparent;
       cursor: pointer;
     }
-
-    #bouton-haut {
+#bouton-haut {
       display: none;
       position: fixed;
       bottom: 5px;
@@ -146,8 +127,6 @@
       opacity: 100%;
       cursor: pointer;
       font-size: 1px;
-
-      
     }
     #bouton-partage {
   position: fixed;
@@ -163,19 +142,15 @@
   align-items: center;
   font-family: "SF", Arial, sans-serif;
 }
-
-    
-    #bouton-partage:hover {
+#bouton-partage:hover {
       background-color: #ccc;
     }
-    
     #bouton-partage img {
       width: 16px;
       height: 16px;
       margin-right: 5px;
     }
-    
-.image-background {
+    .image-background {
   position: fixed;
   top: 0;
   left: 0;
@@ -184,7 +159,6 @@
   z-index: -1;
   overflow: hidden;
 }
-
 .image-background img {
   min-width: 100%;
   min-height: 100%;
@@ -208,11 +182,9 @@
   font-weight: bold;
   transition: opacity 0.5s ease; /* Ajoutez une transition d'opacité pour une apparition en douceur */
 }
-
 .hidden {
   opacity: 0; /* Par défaut, la section est masquée */
 }
-
 </style>
   <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
 </head>
@@ -233,14 +205,12 @@
       <p>Enjoy :)</p>
     </div>
   </div>
-  
   <ul id="listeFilms"></ul>
   <div id="bouton-haut" class="arrow-up"></div>
   <button id="bouton-partage">
     <img src="logo_partage.png" alt="Logo Partage">
     Partager
   </button>
-  
   <script>
     var listeFilms = document.getElementById('listeFilms');
     var films = [
@@ -2196,7 +2166,6 @@
 "lien": "https://www.imdb.com/title/tt4505208/"
 }
 ];
-
 function rechercher() {
   var recherche = document.getElementById('rechercheInput').value.toLowerCase();
   listeFilms.innerHTML = '';
@@ -2218,7 +2187,6 @@ var titleElement = document.createElement('h2');
     infoIcon.alt = 'Info';
     infoIcon.setAttribute('data-link', film.lien); 
     infoIcon.title = 'Description';
-    
     infoIcon.addEventListener('click', function() {
       var link = this.getAttribute('data-link');
       window.open(link, '_blank');
@@ -2236,7 +2204,6 @@ function triParTitre() {
   });
   afficherFilms();
 }
-
 function triParNote() {
   films.sort(function(a, b) {
     return parseFloat(b.imdb) - parseFloat(a.imdb);
@@ -2258,27 +2225,22 @@ function afficherFilms() {
     var imdbElement = document.createElement('p');
     imdbElement.classList.add('film-imdb');
     imdbElement.textContent = 'Note : ' + film.imdb;
-    
     var infoIcon = document.createElement('img');
     infoIcon.classList.add('film-info');
     infoIcon.src = 'info.png';
     infoIcon.alt = 'Info';
     infoIcon.setAttribute('data-link', film.lien); 
     infoIcon.title = 'Description';
-    
     infoIcon.addEventListener('click', function() {
       var link = this.getAttribute('data-link');
       window.open(link, '_blank');
     });
-    
     li.appendChild(titleElement);
     li.appendChild(imdbElement);
     li.appendChild(infoIcon);
     listeFilms.appendChild(li);
   }
 }
-
-
 afficherFilms();
 var boutonHaut = document.getElementById("bouton-haut");
 boutonHaut.addEventListener("click", function() {
@@ -2311,8 +2273,7 @@ boutonPartage.addEventListener('click', function() {
     enjoySection.classList.add('hidden');
   }
 });
-
-  function remonterEnHaut() {
+function remonterEnHaut() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 </script>
