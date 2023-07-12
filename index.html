@@ -108,6 +108,9 @@
   border-radius: 100px; /* Ajout de la bordure arrondie */
   padding: 5px 10px; /* Ajout de la marge intérieure */
 }
+.button-hover {
+ cursor: pointer;
+}
     .arrow-up {
       position: fixed;
       bottom: 5px;
@@ -183,10 +186,6 @@
     width: 60px; /* Ajustez la largeur selon vos besoins */
     height: auto; /* Ajustez la hauteur selon vos besoins */
   }
-  .button-hover {
-    cursor: pointer;
-  background-color: #ff0505;
-}
 #enjoy-section {
   position: fixed;
   bottom: -20px; /* Ajustez la distance depuis le bas de la page selon vos préférences */
@@ -2232,17 +2231,6 @@ function triParNote() {
   });
   afficherFilms();
 }
-var boutonTriNote = document.querySelector('button[onclick="triParNote()"]');
-  boutonTriNote.classList.remove('button-hover');
-
-
-boutonTriNote.addEventListener('mouseout', function() {
-  this.classList.remove('button-hover');
-});
-
-boutonTriNote.addEventListener('click', function() {
-  this.classList.toggle('button-hover');
-});
 var totalFilmsElement = document.createElement('p');
 totalFilmsElement.textContent = 'Total films : ' + films.length;
 document.body.insertBefore(totalFilmsElement, listeFilms);
