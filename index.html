@@ -2019,6 +2019,21 @@
 "titre": "John Wick: Chapter 2",
 "imdb": "7.5",
 "lien": "https://www.imdb.com/title/tt4425200/"
+},
+{
+"titre": "Jeepers Creepers 1",
+"imdb": "6.2",
+"lien": "https://www.imdb.com/title/tt0263488/?ref_=fn_al_tt_1"
+},
+{
+"titre": "Jeepers Creepers 2",
+"imdb": "5.6",
+"lien": "https://www.imdb.com/title/tt0301470/?ref_=fn_al_tt_3"
+},
+{
+"titre": "The Hills Have Eyes",
+"imdb": "6.4",
+"lien": "https://www.imdb.com/title/tt0454841/"
 }
 ];
 function rechercher() {
@@ -2036,8 +2051,20 @@ var titleElement = document.createElement('h2');
       imdbElement.classList.add('film-imdb');
       imdbElement.textContent = 'Note : ' + film.imdb;;
       var infoIcon = document.createElement('img');
+      var infoIcon = document.createElement('img');
+    infoIcon.classList.add('film-info');
+    infoIcon.src = 'info.png';
+    infoIcon.alt = 'Info';
+    infoIcon.setAttribute('data-link', film.lien); 
+    infoIcon.title = 'Description';
+    
+    infoIcon.addEventListener('click', function() {
+      var link = this.getAttribute('data-link');
+      window.open(link, '_blank');
+    });
 li.appendChild(titleElement);
 li.appendChild(imdbElement);
+li.appendChild(infoIcon);
       listeFilms.appendChild(li);
     }
   }
