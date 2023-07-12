@@ -39,6 +39,13 @@
   background-size: cover;
   cursor: pointer;
 }
+.film-info {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  margin-right: 15px;
+}
+
 
 #rechercheInput {
   padding: 10px 10px 10px 30px; /* Ajoutez un padding à gauche pour laisser de l'espace à l'icône */
@@ -78,25 +85,13 @@
 }
 
 .film-imdb {
-  font-size: 20px;
+  font-size: 23px;
   font-weight: bold;
-  margin-right: 15px;
+  margin-right: 20px;
   color: rgb(255, 255, 255);
   font-family: "SF", Arial, sans-serif;
 }
-
-.film-details {
-  margin: 0px;
-  font-size: 20px;
-  float: right;
-  display: flex;
-  align-items: center;
-  color: rgb(224, 224, 224);
-  font-family: "SF", Arial, sans-serif;
-}
-
-    
-    .nav-bar {
+ .nav-bar {
       display: flex;
       justify-content: center;
       margin-bottom: 10px;
@@ -205,7 +200,6 @@
   <img id="cinema-image" src="cinema.png" alt="Cinema Image">
   <div class="nav-bar">
     <button onclick="triParTitre()" onmouseover="this.classList.add('button-hover')" onmouseout="this.classList.remove('button-hover')">Trier par A-Z</button>
-    <button onclick="triParDate()" onmouseover="this.classList.add('button-hover')" onmouseout="this.classList.remove('button-hover')">Trier par date de sortie</button>
     <button onclick="triParNote()" onmouseover="this.classList.add('button-hover')" onmouseout="this.classList.remove('button-hover')">Trier par note</button>    
     <div class="search-container">
       <input type="text" id="rechercheInput" placeholder="Rechercher un film..." oninput="rechercher()">
@@ -225,1783 +219,1428 @@
     var films = [
       {
   "titre": "Interstellar",
-  "date": "2014",
   "imdb" : "8.9",
   "lien": "https://www.imdb.com/title/tt0816692/"
 },
 {
   "titre": "Forrest Gump",
-  "date": "1994",
   "imdb" : "8.8",
   "lien": "https://www.imdb.com/title/tt0109830/"
   
 },
 {
   "titre": "Schindler's List",
-  "date": "1993",
   "imdb" : "8.9"
 },
 {
   "titre": "Inception",
-  "date": "2010",
   "imdb" : "8.8"
 },
 {
   "titre": "Shutter Island",
-  "date": "2010",
   "imdb" : "8.2"
 },
 {
   "titre": "The Green Mile",
-  "date": "1999",
   "imdb" : "8.6"
 },
 {
   "titre": "The Shawshank Redemption",
-  "date": "1994",
   "imdb" : "9.3"
 },
 {
   "titre": "Papillon",
-  "date": "1973",
   "imdb" : "8.0"
 },
 {
-  "titre": "Heat",
-  "date": "1995",
-  "imdb" : "8.2"
+"titre": "Heat",
+"imdb" : "8.2"
 },
 {
-  "titre": "Gladiator",
-  "date": "2000",
-  "imdb" : "8.5"
+"titre": "Gladiator",
+"imdb" : "8.5"
 },
 {
-  "titre": "Top Gun",
-  "date": "1986",
-  "imdb" : "6.9"
+"titre": "Top Gun",
+"imdb" : "6.9"
 },
 {
-  "titre": "Top Gun: Maverick",
-  "date": "2022",
-  "imdb" : "8.9"
+"titre": "Top Gun: Maverick",
+"imdb" : "8.9"
 },
 {
-  "titre": "The Wolf of Wall Street",
-  "date": "2013",
-  "imdb" : "8.2"
+"titre": "The Wolf of Wall Street",
+"imdb" : "8.2"
 },
 {
-  "titre": "The Godfather",
-  "date": "1972",
-  "imdb" : "9.2"
+"titre": "The Godfather",
+"imdb" : "9.2"
 },
 {
-  "titre": "The Godfather Part II",
-  "date": "1974",
-  "imdb" : "9.0"
+"titre": "The Godfather Part II",
+"imdb" : "9.0"
 },
 {
-  "titre": "The Godfather Part III",
-  "date": "1990",
-  "imdb" : "7.6"
+"titre": "The Godfather Part III",
+"imdb" : "7.6"
 },
 {
-  "titre": "Titanic",
-  "date": "1997",
-  "imdb" : "7.8"
+"titre": "Titanic",
+"imdb" : "7.8"
 },
 {
-  "titre": "Scarface",
-  "date": "1983",
-  "imdb" : "8.3"
+"titre": "Scarface",
+"imdb" : "8.3"
 },
 {
-  "titre": "The Irishman",
-  "date": "2019",
-  "imdb" : "7,8"
+"titre": "The Irishman",
+"imdb" : "7,8"
 },
 {
-  "titre": "Saving Private Ryan",
-  "date": "1998",
-  "imdb" : "8.6"
+"titre": "Saving Private Ryan",
+"imdb" : "8.6"
 },
 {
-  "titre": "Mission Impossible",
-  "date": "1996",
-  "imdb" : "7.1"
+"titre": "Mission Impossible",
+"imdb" : "7.1"
 },
 {
-  "titre": "Training Day",
-  "date": "2001",
-  "imdb" : "7.7"
+"titre": "Training Day",
+"imdb" : "7.7"
 },
 {
-  "titre": "Taxi Driver",
-  "date": "1976",
-  "imdb" : "8.3"
+"titre": "Taxi Driver",
+"imdb" : "8.3"
 },
 {
-  "titre": "Seven",
-  "date": "1995",
-  "imdb" : "8.6"
+"titre": "Seven",
+"imdb" : "8.6"
 },
 {
-  "titre": "One Flew Over the Cuckoo's Nest",
-  "date": "1975",
-  "imdb" : "8.7"
+"titre": "One Flew Over the Cuckoo's Nest",
+"imdb" : "8.7"
 },
 {
-  "titre": "Léon: The Professional",
-  "date": "1994",
-  "imdb" : "8.5"
+"titre": "Léon: The Professional",
+"imdb" : "8.5"
 },
 {
-  "titre": "The Room",
-  "date": "2003",
-  "imdb" : "3.7"
+"titre": "The Room",
+"imdb" : "3.7"
 },
 {
-  "titre": "Goodfellas",
-  "date": "1990",
-  "imdb" : "8.7"
+"titre": "Goodfellas",
+"imdb" : "8.7"
 },
 {
-  "titre": "The Pianist",
-  "date": "2002",
-  "imdb" : "8.5"
+"titre": "The Pianist",
+"imdb" : "8.5"
 },
 {
-  "titre": "The Hangover",
-  "date": "2009",
-  "imdb" : "7.7"
+"titre": "The Hangover",
+"imdb" : "7.7"
 },
 {
-  "titre": "Wall-e",
-  "date": "2008",
-  "imdb" : "8.4"
+"titre": "Wall-e",
+"imdb" : "8.4"
 },
 {
-  "titre": "La La Land",
-  "date": "2016",
-  "imdb" : "8.0"
+"titre": "La La Land",
+"imdb" : "8.0"
 },
 {
-  "titre": "Jurassic Park",
-  "date": "1993",
-  "imdb" : "8.1"
+"titre": "Jurassic Park",
+"imdb" : "8.1"
 },
 {
-  "titre": "Divergent",
-  "date": "2014",
-  "imdb" : "6.6"
+"titre": "Divergent",
+"imdb" : "6.6"
 },
 {
-  "titre": "V for Vendetta",
-  "date": "2005",
-  "imdb" : "8.2"
+"titre": "V for Vendetta",
+"imdb" : "8.2"
 },
 {
-  "titre": "12 Years a Slave",
-  "date": "2013",
-  "imdb" : "8.1"
+"titre": "12 Years a Slave",
+"imdb" : "8.1"
 },
 {
-  "titre": "The Hateful Eight",
-  "date": "2015",
-  "imdb" : "7.8"
+"titre": "The Hateful Eight",
+"imdb" : "7.8"
 },
 {
-  "titre": "Lucy",
-  "date": "2014",
-  "imdb" : "6.4"
+"titre": "Lucy",
+"imdb" : "6.4"
 },
 {
-  "titre": "Pulp Fiction",
-  "date": "1994",
-  "imdb" : "8.9"
+"titre": "Pulp Fiction",
+"imdb" : "8.9"
 },
 {
-  "titre": "Donnie Brasco",
-  "date": "1997",
-  "imdb" : "7.7"
+"titre": "Donnie Brasco",
+"imdb" : "7.7"
 },
 {
-  "titre": "Casino",
-  "date": "1995",
-  "imdb" : "8.2"
+"titre": "Casino",
+"imdb" : "8.2"
 },
 {
-  "titre": "7. Miracle in Cell No. 7",
-  "date": "2019",
-  "imdb" : "8.2"
+"titre": "7. Miracle in Cell No. 7",
+"imdb" : "8.2"
 },
 {
-  "titre": "Gifted",
-  "date": "2017",
-  "imdb" : "7.6"
+"titre": "Gifted",
+"imdb" : "7.6"
 },
 {
-  "titre": "Final Destination",
-  "date": "2000",
-  "imdb" : "6.7"
+"titre": "Final Destination",
+"imdb" : "6.7"
 },
 {
-  "titre": "The Aviator",
-  "date": "2004",
-  "imdb" : "7.5"
+"titre": "The Aviator",
+"imdb" : "7.5"
 },
 {
-  "titre": "Bohemian Rhapsody",
-  "date": "2018",
-  "imdb" : "8.0"
+"titre": "Bohemian Rhapsody",
+"imdb" : "8.0"
 },
 {
-  "titre": "Scary Movie",
-  "date": "2000",
-  "imdb" : "6.2"
+"titre": "Scary Movie",
+"imdb" : "6.2"
 },
 {
-  "titre": "World War Z",
-  "date": "2013",
-  "imdb" : "7.0"
+"titre": "World War Z",
+"imdb" : "7.0"
 },
 {
-  "titre": "La Haine",
-  "date": "1995",
-  "imdb" : "8.1"
+"titre": "La Haine",
+"imdb" : "8.1"
 },
 {
-  "titre": "War of the Worlds",
-  "date": "2005",
-  "imdb" : "6.5"
+"titre": "War of the Worlds",
+"imdb" : "6.5"
 },
 {
-  "titre": "Scent of a Woman",
-  "date": "1992",
-  "imdb" : "8.0"
+"titre": "Scent of a Woman",
+"imdb" : "8.0"
 },
 {
-  "titre": "The Social Network",
-  "date": "2010",
-  "imdb" : "7.7"
+"titre": "The Social Network",
+"imdb" : "7.7"
 },
 {
-  "titre": "X-Men",
-  "date": "2000",
-  "imdb" : "7.4"
+"titre": "X-Men",
+"imdb" : "7.4"
 },
 {
-  "titre": "Harry Potter and the Sorcerer's Stone",
-  "date": "2001",
-  "imdb" : "7.6"
+"titre": "Harry Potter and the Sorcerer's Stone",
+"imdb" : "7.6"
 },
 {
-  "titre": "Harry Potter and the Chamber of Secrets",
-  "date": "2002",
-  "imdb" : "7.4"
+"titre": "Harry Potter and the Chamber of Secrets",
+"imdb" : "7.4"
 },
 {
-  "titre": "Harry Potter and the Prisoner of Azkaban",
-  "date": "2004",
-  "imdb" : "7.9"
+"titre": "Harry Potter and the Prisoner of Azkaban",
+"imdb" : "7.9"
 },
 {
-  "titre": "Harry Potter and the Goblet of Fire",
-  "date": "2005",
-  "imdb" : "7.7"
+"titre": "Harry Potter and the Goblet of Fire",
+"imdb" : "7.7"
 },
 {
-  "titre": "Harry Potter and the Order of the Phoenix",
-  "date": "2007",
-  "imdb" : "7.5"
+"titre": "Harry Potter and the Order of the Phoenix",
+"imdb" : "7.5"
 },
 {
-  "titre": "Harry Potter and the Half-Blood Prince",
-  "date": "2009",
-  "imdb" : "7.6"
+"titre": "Harry Potter and the Half-Blood Prince",
+"imdb" : "7.6"
 },
 {
-  "titre": "Harry Potter and the Deathly Hallows - Part 1",
-  "date": "2010",
-  "imdb" : "7.7"
+"titre": "Harry Potter and the Deathly Hallows - Part 1",
+"imdb" : "7.7"
 },
 {
-  "titre": "Harry Potter and the Deathly Hallows - Part 2",
-  "date": "2011",
-  "imdb" : "8.1"
+"titre": "Harry Potter and the Deathly Hallows - Part 2",
+"imdb" : "8.1"
 },
 {
-  "titre": "The Big Short",
-  "date": "2015",
-  "imdb" : "7.8"
+"titre": "The Big Short",
+"imdb" : "7.8"
 },
 {
-  "titre": "Star Wars I: The Phantom Menace",
-  "date": "1999",
-  "imdb" : "6.5"
+"titre": "Star Wars I: The Phantom Menace",
+"imdb" : "6.5"
 },
 {
-  "titre": "Star Wars II: Attack of the Clones",
-  "date": "2002",
-  "imdb" : "6.5"
+"titre": "Star Wars II: Attack of the Clones",
+"imdb" : "6.5"
 },
 {
-  "titre": "Star Wars III: Revenge of the Sith",
-  "date": "2005",
-  "imdb" : "7.5"
+"titre": "Star Wars III: Revenge of the Sith",
+"imdb" : "7.5"
 },
 {
-  "titre": "Star Wars IV: A New Hope",
-  "date": "1977",
-  "imdb" : "8.6"
+"titre": "Star Wars IV: A New Hope",
+"imdb" : "8.6"
 },
 {
-  "titre": "Star Wars V: The Empire Strikes Back",
-  "date": "1980",
-  "imdb" : "8.7"
+"titre": "Star Wars V: The Empire Strikes Back",
+"imdb" : "8.7"
 },
 {
-  "titre": "Star Wars VI: Return of the Jedi",
-  "date": "1983",
-  "imdb" : "8.3"
+"titre": "Star Wars VI: Return of the Jedi",
+"imdb" : "8.3"
 },
 {
-  "titre": "Star Wars VII: The Force Awakens",
-  "date": "2015",
-  "imdb" : "7.8"
+"titre": "Star Wars VII: The Force Awakens",
+"imdb" : "7.8"
 },
 {
-  "titre": "Star Wars VIII: The Last Jedi",
-  "date": "2017",
-  "imdb" : "7.0"
+"titre": "Star Wars VIII: The Last Jedi",
+"imdb" : "7.0"
 },
 {
-  "titre": "Star Wars IX: The Rise of Skywalker",
-  "date": "2019",
-  "imdb" : "6.5"
+"titre": "Star Wars IX: The Rise of Skywalker",
+"imdb" : "6.5"
 },
 {
-  "titre": "Rogue One",
-  "date": "2016",
-  "imdb" : "7.6"
+"titre": "Rogue One",
+"imdb" : "7.6"
 },
 {
-  "titre": "Solo",
-  "date": "2018",
-  "imdb" : "6.9"
+"titre": "Solo",
+"imdb" : "6.9"
 },
 {
-  "titre": "The Purge",
-  "date": "2013",
-  "imdb" : "5.7"
+"titre": "The Purge",
+"imdb" : "5.7"
 },
 {
-  "titre": "Saving Private Ryan",
-  "date": "1998",
-  "imdb" : "8.6"
+"titre": "Saving Private Ryan",
+"imdb" : "8.6"
 },
 {
-  "titre": "The Hunger Games",
-  "date": "2012",
-  "imdb" : "7.2"
+"titre": "The Hunger Games",
+"imdb" : "7.2"
 },
 {
-  "titre": "Inglourious Basterds",
-  "date": "2009",
-  "imdb" : "8.3"
+"titre": "Inglourious Basterds",
+"imdb" : "8.3"
 },
 {
-  "titre": "Reservoir Dogs",
-  "date": "1992",
-  "imdb" : "8.3"
+"titre": "Reservoir Dogs",
+"imdb" : "8.3"
 },
 {
-    "titre": "Kill Bill",
-    "date": "2003",
-    "imdb": "8.1"
-  },
-  {
-    "titre": "Transporter",
-    "date": "2002",
-    "imdb": "6.8"
-  },
-  {
-    "titre": "Triple X",
-    "date": "2002",
-    "imdb": "5.9"
-  },
-  {
-    "titre": "Fast & Furious",
-    "date": "2001",
-    "imdb": "6.8"
-  },
-  {
-    "titre": "Ted",
-    "date": "2012",
-    "imdb": "6.9"
-  },
-  {
-    "titre": "Catch Me If You Can",
-    "date": "2002",
-    "imdb": "8.1"
-  },
-  {
-    "titre": "The Equalizer",
-    "date": "2014",
-    "imdb": "7.2"
-  },
-  {
-    "titre": "Jason Bourne",
-    "date": "2016",
-    "imdb": "6.6"
-  },
-  {
-    "titre": "Gone Girl",
-    "date": "2014",
-    "imdb": "8.1"
-  },
-  {
-    "titre": "Taken",
-    "date": "2008",
-    "imdb": "7.8"
-  },
-  {
-    "titre": "Noah",
-    "date": "2014",
-    "imdb": "5.8"
-  },
-  {
-    "titre": "Lupin",
-    "date": "2021",
-    "imdb": "7.6"
-  },
-  {
-    "titre": "Exodus",
-    "date": "2014",
-    "imdb": "6.0"
-  },
-  {
-    "titre": "Arissala",
-    "date": "1976",
-    "imdb": "7.4"
-  },
-  {
-    "titre": "Exorcist",
-    "date": "1973",
-    "imdb": "8.0"
-  },
-  {
-    "titre": "Conjuring",
-    "date": "2013",
-    "imdb": "7.5"
-  },
-  {
-    "titre": "Paranormal Activity",
-    "date": "2007",
-    "imdb": "6.3"
-  },
-  {
-    "titre": "[Rec]",
-    "date": "2007",
-    "imdb": "7.4"
-  },
-  {
-    "titre": "American Psycho",
-    "date": "2000",
-    "imdb": "7.6"
-  },
-  {
-    "titre": "The Revenant",
-    "date": "2015",
-    "imdb": "8.0"
-  },
-  {
-    "titre": "Don't Look Up",
-    "date": "2021",
-    "imdb": "7.2"
-  },
-  {
-    "titre": "The Town",
-    "date": "2010",
-    "imdb": "7.5"
-  },
-  {
-    "titre": "John Wick",
-    "date": "2014",
-    "imdb": "7.4"
-  },
-  {
-    "titre": "Argo",
-    "date": "2012",
-    "imdb": "7.7"
-  },
-  {
-    "titre": "Good Will Hunting",
-    "date": "1997",
-    "imdb": "8.3"
-  },
-  {
-    "titre": "Joker",
-    "date": "2019",
-    "imdb": "8.4"
-  },
-  {
-    "titre": "I Am Legend",
-    "date": "2007",
-    "imdb": "7.2"
-  },
-  {
-    "titre": "Avengers",
-    "date": "2012",
-    "imdb": "8.0"
-  },
-  {
-    "titre": "Back to the Future",
-    "date": "1985",
-    "imdb": "8.5"
-  },
-  {
-    "titre": "Avatar",
-    "date": "2009",
-    "imdb": "7.8"
-  },
-  {
-    "titre": "Terminator",
-    "date": "1984",
-    "imdb": "8.0"
-  },
-  {
-    "titre": "Ex Machina",
-    "date": "2014",
-    "imdb": "7.7"
-  },
-  {
-    "titre": "The Good, the Bad and the Ugly",
-    "date": "1966",
-    "imdb": "8.8"
-  },
-  {
-    "titre": "Shaun of the Dead",
-    "date": "2004",
-    "imdb": "7.9"
-  },
-  {
-    "titre": "Gran Torino",
-    "date": "2008",
-    "imdb": "8.1"
-  },
-  {
-    "titre": "Revolutionary Road",
-    "date": "2008",
-    "imdb": "7.3"
-},
-{
-    "titre": "127 Hours",
-    "date": "2010",
-    "imdb": "7.6"
-  },
-  {
-    "titre": "Planet of the Apes",
-    "date": "1968",
-    "imdb": "8.0"
-  },
-  {
-    "titre": "Saw",
-    "date": "2004",
-    "imdb": "7.6"
-  },
-  {
-    "titre": "The Human Centipede",
-    "date": "2009",
-    "imdb": "4.4"
-  },
-  {
-    "titre": "Home Alone",
-    "date": "1990",
-    "imdb": "7.6"
-  },
-  {
-    "titre": "Hacksaw Ridge",
-    "date": "2016",
-    "imdb": "8.1"
-  },
-  {
-    "titre": "Django Unchained",
-    "date": "2012",
-    "imdb": "8.4"
-  },
-  {
-    "titre": "21 Jump Street",
-    "date": "2012",
-    "imdb": "7.2"
-  },
-  {
-    "titre": "22 Jump Street",
-    "date": "2014",
-    "imdb": "7.0"
-  },
-  {
-    "titre": "The Intouchables",
-    "date": "2011",
-    "imdb": "8.5"
-  },
-  {
-    "titre": "Whiplash",
-    "date": "2014",
-    "imdb": "8.5"
-  },
-  {
-    "titre": "Requiem for a Dream",
-    "date": "2000",
-    "imdb": "8.3"
-  },
-  {
-    "titre": "Parasite",
-    "date": "2019",
-    "imdb": "8.6"
-  },
-  {
-    "titre": "Coco",
-    "date": "2017",
-    "imdb": "8.4"
-  },
-  {
-    "titre": "Premonition",
-    "date": "2007",
-    "imdb": "5.9"
-  },
-  {
-    "titre": "Chucky",
-    "date": "1988",
-    "imdb": "6.6"
-  },
-  {
-    "titre": "Annabelle",
-    "date": "2014",
-    "imdb": "5.4"
-  },
-  {
-    "titre": "The Karate Kid",
-    "date": "1984",
-    "imdb": "7.3"
-  },
-  {
-    "titre": "Letters from Iwo Jima",
-    "date": "2006",
-    "imdb": "7.8"
-  },
-  {
-    "titre": "The Bridge on the River Kwai",
-    "date": "1957",
-    "imdb": "8.1"
-  },
-  {
-    "titre": "Cast Away",
-    "date": "2000",
-    "imdb": "7.8"
-  },
-  {
-    "titre": "Innocent",
-    "date": "2021",
-    "imdb": ""
-  },
-  {
-    "titre": "Beasts of No Nation",
-    "date": "2015",
-    "imdb": "7.7"
-  },
-  {
-    "titre": "American Sniper",
-    "date": "2014",
-    "imdb": "7.3"
-  },
-  {
-    "titre": "Undisputed",
-    "date": "2002",
-    "imdb": "6.2"
-  },
-  {
-    "titre": "Focus",
-    "date": "2015",
-    "imdb": "6.6"
-  },
-  {
-    "titre": "Meet the Parents",
-    "date": "2000",
-    "imdb": "7.0"
-  },
-  {
-    "titre": "Hancock",
-    "date": "2008",
-    "imdb": "6.4"
-  },
-  {
-    "titre": "I, Robot",
-    "date": "2004",
-    "imdb": "7.1"
-  },
-  {
-    "titre": "Bad Boys for Life",
-    "date": "2020",
-    "imdb": "6.6"
-  },
-  {
-    "titre": "Men in Black",
-    "date": "1997",
-    "imdb": "7.3"
-  },
-  {
-    "titre": "Suicide Squad",
-    "date": "2016",
-    "imdb": "5.9"
-  },
-  {
-    "titre": "Hachi: A Dog's Tale",
-    "date": "2009",
-    "imdb": "8.1"
-  },
-  {
-    "titre": "Pelé",
-    "date": "2021",
-    "imdb": "7.3"
-  },
-  {
-    "titre": "Silver Linings Playbook",
-    "date": "2012",
-    "imdb": "7.7"
-  },
-  {
-    "titre": "Night at the Museum",
-    "date": "2006",
-    "imdb": "6.4"
-  },
-  {
-    "titre": "The Grey",
-    "date": "2011",
-    "imdb": "6.8"
-  },
-  {
-    "titre": "Seven Years in Tibet",
-    "date": "1997",
-    "imdb": "7.0"
-  },
-  {
-    "titre": "Gandhi",
-    "date": "1982",
-    "imdb": "8.0"
-  },
-  {
-    "titre": "Mustang",
-    "date": "2015",
-    "imdb": "7.6"
-  },
-  {
-    "titre": "Edge of Tomorrow",
-    "date": "2014",
-    "imdb": "7.9"
-  },
-  {
-    "titre": "Jerry Maguire",
-    "date": "1996",
-    "imdb": "7.3"
-  },
-  {
-    "titre": "Oblivion",
-    "date": "2013",
-    "imdb": "7.0"
-  },
-  {
-    "titre": "2012",
-    "date": "2009",
-    "imdb": "5.8"
-  },
-  {
-    "titre": "Spider-Man",
-    "date": "2002",
-    "imdb": "7.3"
-  },
-  {
-    "titre": "La Grande Vadrouille",
-    "date": "1966",
-    "imdb": "8.0"
-  },
-  {
-    "titre": "Le Gendarme de Saint-Tropez",
-    "date": "1964",
-    "imdb": "6.5"
-  },
-  {
-    "titre": "Astérix and Obélix",
-    "date": "1999",
-    "imdb": "5.9"
-  },
-  {
-    "titre": "The Battle of Algiers",
-    "date": "1966",
-    "imdb": "8.1"
-  },
-  {
-    "titre": "The Terminal",
-    "date": "2004",
-    "imdb": "7.3"
-  },
-  {
-    "titre": "Captain Phillips",
-    "date": "2013",
-    "imdb": "7.8"
-  },
-  {
-    "titre": "Mad Max: Fury Road",
-    "date": "2015",
-    "imdb": "8.1"
-  },
-  {
-    "titre": "La Haine",
-    "date": "1995",
-    "imdb": "8.1"
-  },
-  {
-    "titre": "Minority Report",
-    "date": "2002",
-    "imdb": "7.6"
-  },
-  {
-    "titre": "Split",
-    "date": "2016",
-    "imdb": "7.3"
-  },
-  {
-    "titre": "Tarzan",
-    "date": "1999",
-    "imdb": "7.3"
-  },
-  {
-    "titre": "Charlie and the Chocolate Factory",
-    "date": "2005",
-    "imdb": "6.6"
-  },
-  {
-    "titre": "Deadpool",
-    "date": "2016",
-    "imdb": "8.0"
-  },
-  {
-    "titre": "The Accused",
-    "date": "2016",
-    "imdb": "8.1"
-  },
-  {
-    "titre": "Mommy",
-    "date": "2014",
-    "imdb": "8.1"
-  },
-  {
-    "titre": "Le Crocodile du Botswanga",
-    "date": "2014",
-    "imdb": "5.6"
-  },
-  {
-    "titre": "The Grand Budapest Hotel",
-    "date": "2014",
-    "imdb": "8.1"
-  },
-  {
-    "titre": "Dallas Buyers Club",
-    "date": "2013",
-    "imdb": "8.0"
-  },
-  {
-    "titre": "Nightcrawler",
-    "date": "2014",
-    "imdb": "7.8"
-  },
-  {
-    "titre": "Mary Poppins",
-    "date": "1964",
-    "imdb": "7.8"
-  },
-  {
-    "titre": "Fury",
-    "date": "2014",
-    "imdb": "7.6"
-  },
-  {
-    "titre": "Captain America",
-    "date": "2011",
-    "imdb": "6.9"
-  },
-  {
-    "titre": "Godzilla",
-    "date": "2014",
-    "imdb": "6.4"
-  },
-  {
-    "titre": "Timbuktu",
-    "date": "2014",
-    "imdb": "7.2"
-  },
-  {
-    "titre": "The Labyrinth",
-    "date": "1986",
-    "imdb": "7.4"
-  },
-  {
-    "titre": "John Wick",
-    "date": "2014",
-    "imdb": "7.4"
-  },
-  {
-    "titre": "Nebraska",
-    "date": "2013",
-    "imdb": "7.7"
-  },
-  {
-    "titre": "The Imitation Game",
-    "date": "2014",
-    "imdb": "8.0"
-  },
-  {
-    "titre": "Thor",
-    "date": "2011",
-    "imdb": "7.0"
-  },
-  {
-    "titre": "Babysitting",
-    "date": "2014",
-    "imdb": "6.8"
-  },
-  {
-    "titre": "The Martian",
-    "date": "2015",
-    "imdb": "8.0"
-  },
-  {
-    "titre": "Inside Out",
-    "date": "2015",
-    "imdb": "8.1"
-  },
-  {
-    "titre": "007",
-    "date": "1962",
-    "imdb": "7.2"
-  },
-  {
-    "titre": "Invincible",
-    "date": "2006",
-    "imdb": "7.1"
-  },
-  {
-    "titre": "Son of Saul",
-    "date": "2015",
-    "imdb": "7.5"
-  },
-  {
-    "titre": "Ant-Man",
-    "date": "2015",
-    "imdb": "7.3"
-  },
-  {
-    "titre": "Sicario",
-    "date": "2015",
-    "imdb": "7.6"
-  },
-  {
-    "titre": "The Theory of Everything",
-    "date": "2014",
-    "imdb": "7.7"
-  },
-  {
-    "titre": "Fifty Shades of Grey",
-    "date": "2015",
-    "imdb": "4.1"
-  },
-  {
-    "titre": "Fifty Shades Darker",
-    "date": "2017",
-    "imdb": "4.6"
-  },
-  {
-    "titre": "Fifty Shades Freed",
-    "date": "2018",
-    "imdb": "4.5"
-  },
-  {
-    "titre": "365 Days",
-    "date": "2020",
-    "imdb": "3.2"
-  },
-  {
-    "titre": "American Pie",
-    "date": "1999",
-    "imdb": "7.0"
-  },
-  {
-    "titre": "Up",
-    "date": "2009",
-    "imdb": "8.2"
-  },
-  {
-    "titre": "Indiana Jones",
-    "date": "1981",
-    "imdb": "8.4"
-  },
-  {
-    "titre": "The Truman Show",
-    "date": "1998",
-    "imdb": "8.1"
-  },
-  {
-    "titre": "Monsters, Inc.",
-    "date": "2001",
-    "imdb": "8.0"
-  },
-  {
-    "titre": "Jaws",
-    "date": "1975",
-    "imdb": "8.0"
-  },
-  {
-    "titre": "Rocky",
-    "date": "1976",
-    "imdb": "8.1"
-  },
-  {
-    "titre": "Ratatouille",
-    "date": "2007",
-    "imdb": "8.0"
-  },
-  {
-    "titre": "Logan",
-    "date": "2017",
-    "imdb": "8.1"
-  },
-  {
-    "titre": "The Incredibles",
-    "date": "2004",
-    "imdb": "8.0"
-  },
-  {
-    "titre": "Pirates of the Caribbean",
-    "date": "2003",
-    "imdb": "8.0"
-  },
-  {
-    "titre": "Despicable Me",
-    "date": "2010",
-    "imdb": "7.6"
-  },
-  {
-    "titre": "Twilight",
-    "date": "2008",
-    "imdb": "5.2"
-  },
-  {
-    "titre": "The Mask",
-    "date": "1994",
-    "imdb": "6.9"
-  },
-  {
-    "titre": "Ace Ventura",
-    "date": "1994",
-    "imdb": "6.9"
-  },
-  {
-    "titre": "Dumb and Dumber",
-    "date": "1994",
-    "imdb": "7.3"
-  },
-  {
-    "titre": "Bruce Almighty",
-    "date": "2003",
-    "imdb": "6.7"
-  },
-  {
-    "titre": "Norbit",
-    "date": "2007",
-    "imdb": "4.0"
-  },
-  {
-    "titre": "Coming to America",
-    "date": "1988",
-    "imdb": "7.0"
-  },
-  {
-    "titre": "Doctor Dolittle",
-    "date": "1998",
-    "imdb": "5.4"
-  },
-  {
-    "titre": "Mulan",
-    "date": "1998",
-    "imdb": "7.6"
-  },
-  {
-    "titre": "Now You See Me",
-    "date": "2013",
-    "imdb": "7.2"
-  },
-  {
-    "titre": "London Has Fallen",
-    "date": "2016",
-    "imdb": "5.9"
-  },
-  {
-    "titre": "The Fall of Hollywood",
-    "date": "2019",
-    "imdb": ""
-  },
-  {
-    "titre": "Zero Dark Thirty",
-    "date": "2012",
-    "imdb": "7.4"
-  },
-  {
-    "titre": "King Kong",
-    "date": "2005",
-    "imdb": "7.2"
-  },
-  {
-    "titre": "Godzilla vs. Kong",
-    "date": "2021",
-    "imdb": "6.4"
-  },
-  {
-    "titre": "Godzilla",
-    "date": "2014",
-    "imdb": "6.4"
-  },
-  {
-    "titre": "Iron Man",
-    "date": "2008",
-    "imdb": "7.9"
-  },
-  {
-    "titre": "Home Alone",
-    "date": "1990",
-    "imdb": "7.6"
-  },
-  {
-    "titre": "Gravity",
-    "date": "2013",
-    "imdb": "7.7"
-  },
-  {
-    "titre": "San Andreas",
-    "date": "2015",
-    "imdb": "6.0"
-  },
-  {
-    "titre": "Geostorm",
-    "date": "2017",
-    "imdb": "5.3"
-  },
-  {
-    "titre": "The Day After Tomorrow",
-    "date": "2004",
-    "imdb": "6.4"
-  },
-  {
-    "titre": "Deep Impact",
-    "date": "1998",
-    "imdb": "6.2"
-  },
-  {
-    "titre": "Hours",
-    "date": "2013",
-    "imdb": "6.5"
-  },
-  {
-    "titre": "Talláss",
-    "date": "2019",
-    "imdb": ""
-  },
-  {
-    "titre": "The Babysitter",
-    "date": "2017",
-    "imdb": "6.3"
-  },
-  {
-    "titre": "Riddick",
-    "date": "2013",
-    "imdb": "6.4"
-  },
-  {
-    "titre": "Rampage",
-    "date": "2018",
-    "imdb": "6.1"
-  },
-  {
-    "titre": "G.I. Joe: The Rise of Cobra",
-    "date": "2009",
-    "imdb": "5.8"
-  },
-  {
-    "titre": "Jumanji",
-    "date": "1995",
-    "imdb": "7.0"
-  },
-  {
-    "titre": "Mr. & Mrs. Smith",
-    "date": "2005",
-    "imdb": "6.5"
-  },
-  {
-    "titre": "The Tree of Life",
-    "date": "2011",
-    "imdb": "6.8"
-  },
-  {
-    "titre": "Man on Fire",
-    "date": "2004",
-    "imdb": "7.7"
-  },
-  {
-    "titre": "Flight",
-    "date": "2012",
-    "imdb": "7.3"
-  },
-  {
-    "titre": "2 Guns",
-    "date": "2013",
-    "imdb": "6.7"
-  },
-  {
-    "titre": "Johnny English",
-    "date": "2003",
-    "imdb": "6.2"
-  },
-  {
-    "titre": "Mr. Bean's Holiday",
-    "date": "2007",
-    "imdb": "6.4"
-  },
-  {
-    "titre": "Bean",
-    "date": "1997",
-    "imdb": "6.4"
-  },
-  {
-    "titre": "Transcendence",
-    "date": "2014",
-    "imdb": "6.3"
-  },
-  {
-    "titre": "Sleepy Hollow",
-    "date": "1999",
-    "imdb": "7.3"
-  },
-  {
-    "titre": "Sweeney Todd: The Demon Barber of Fleet Street",
-    "date": "2007",
-    "imdb": "7.3"
-  },
-  {
-    "titre": "Alice in Wonderland",
-    "date": "2010",
-    "imdb": "6.4"
-  },
-  {
-    "titre": "Midnight Express",
-    "date": "1978",
-    "imdb": "7.6"
-  },
-  {
-    "titre": "The Expendables",
-    "date": "2010",
-    "imdb": "6.5"
-  },
-  {
-    "titre": "Den of Thieves",
-    "date": "2018",
-    "imdb": "7.0"
-  },
-  {
-    "titre": "Nightcrawler",
-    "date": "2014",
-    "imdb": "7.8"
-  },
-  {
-    "titre": "The Platform",
-    "date": "2019",
-    "imdb": "7.0"
-  },
-  {
-    "titre": "The Last Stand",
-    "date": "2013",
-    "imdb": "6.3"
-  },
-  {
-    "titre": "Southpaw",
-    "date": "2015",
-    "imdb": "7.4"
-  },
-  {
-    "titre": "Lee Daniels' The Butler",
-    "date": "2013",
-    "imdb": "7.2"
-  },
-  {
-    "titre": "Hitman",
-    "date": "2007",
-    "imdb": "6.3"
-  },
-  {
-    "titre": "Darkest Hour",
-    "date": "2017",
-    "imdb": "7.4"
-  },
-  {
-    "titre": "The Battle of the Scheldt",
-    "date": "2020",
-    "imdb": ""
-  },
-  {
-    "titre": "Elysium",
-    "date": "2013",
-    "imdb": "6.6"
-  },
-  {
-    "titre": "District 13",
-    "date": "2004",
-    "imdb": "7.2"
-  },
-  {
-    "titre": "Chef",
-    "date": "2014",
-    "imdb": "7.3"
-  },
-  {
-    "titre": "The Impossible",
-    "date": "2012",
-    "imdb": "7.6"
-  },
-  {
-    "titre": "Les Kaïra",
-    "date": "2012",
-    "imdb": "5.8"
-  },
-  {
-    "titre": "Neuilly sa mère !",
-    "date": "2009",
-    "imdb": "5.9"
-  },
-  {
-    "titre": "Pattaya",
-    "date": "2016",
-    "imdb": "4.8"
-  },
-  {
-    "titre": "The Wave",
-    "date": "2015",
-    "imdb": "6.7"
-  },
-  {
-    "titre": "Hotel Transylvania",
-    "date": "2012",
-    "imdb": "7.1"
-  },
-  {
-    "titre": "Piranha 3D",
-    "date": "2010",
-    "imdb": "5.4"
-  },
-  {
-    "titre": "Rise of the Guardians",
-    "date": "2012",
-    "imdb": "7.3"
-  },
-  {
-    "titre": "Life of Pi",
-    "date": "2012",
-    "imdb": "7.9"
-  },
-  {
-    "titre": "Dunkirk",
-    "date": "2017",
-    "imdb": "7.8"
-  },
-  {
-    "titre": "The Casual Vacancy",
-    "date": "2015",
-    "imdb": "6.6"
-  },
-  {
-    "titre": "Loving Pablo",
-    "date": "2017",
-    "imdb": "6.3"
-  },
-  {
-    "titre": "The Little Prince",
-    "date": "2015",
-    "imdb": "7.7"
-  },
-  {
-    "titre": "Along with the Gods",
-    "date": "2017",
-    "imdb": "7.3"
-  },
-  {
-    "titre": "The Battle of the Scheldt",
-    "date": "2020",
-    "imdb": ""
-  },
-  {
-    "titre": "The Hunger Games: Catching Fire",
-    "date": "2013",
-    "imdb": "7.5"
-  },
-  {
-    "titre": "The Hunger Games: Mockingjay - Part 1",
-    "date": "2014",
-    "imdb": "6.6"
-  },
-  {
-    "titre": "The Hunger Games: Mockingjay - Part 2",
-    "date": "2015",
-    "imdb": "6.5"
-  },
-  {
-    "titre": "Divergent: Insurgent",
-    "date": "2015",
-    "imdb": "6.2"
-  },
-  {
-    "titre": "Divergent: Allegiant",
-    "date": "2016",
-    "imdb": "5.7"
-  },
-  {
-    "titre": "Back to the Future Part II",
-    "date": "1989",
-    "imdb": "7.8"
-  },
-  {
-    "titre": "Back to the Future Part III",
-    "date": "1990",
-    "imdb": "7.4"
-  },
-  {
-    "titre": "Scary Movie 2",
-    "date": "2001",
-    "imdb": "5.3"
-  },
-  {
-    "titre": "Scary Movie 3",
-    "date": "2003",
-    "imdb": "5.5"
-  },
-  {
-    "titre": "Scary Movie 4",
-    "date": "2006",
-    "imdb": "5.1"
-  },
-  {
-    "titre": "Scary Movie 5",
-    "date": "2013",
-    "imdb": "3.5"
-  },
-  {
-    "titre": "Casino Royale",
-    "date": "2006",
-    "imdb": "8.0"
-  },
-  {
-    "titre": "Quantum of Solace",
-    "date": "2008",
-    "imdb": "6.6"
-  },
-  {
-    "titre": "Skyfall",
-    "date": "2012",
-    "imdb": "7.7"
-  },
-  {
-    "titre": "Spectre",
-    "date": "2015",
-    "imdb": "6.8"
-  },
-  {
-    "titre": "Mission: Impossible II",
-    "date": "2000",
-    "imdb": "6.1"
-  },
-  {
-    "titre": "Mission: Impossible III",
-    "date": "2006",
-    "imdb": "6.9"
-  },
-  {
-    "titre": "Mission: Impossible - Ghost Protocol",
-    "date": "2011",
-    "imdb": "7.4"
-  },
-  {
-    "titre": "Mission: Impossible - Rogue Nation",
-    "date": "2015",
-    "imdb": "7.4"
-  },
-  {
-    "titre": "Mission: Impossible - Fallout",
-    "date": "2018",
-    "imdb": "7.7"
-  },
-  {
-    "titre": "The Purge: Anarchy",
-    "date": "2014",
-    "imdb": "6.4"
-  },
-  {
-    "titre": "The Purge: Election Year",
-    "date": "2016",
-    "imdb": "6.0"
-  },
-  {
-    "titre": "The First Purge",
-    "date": "2018",
-    "imdb": "5.2"
-  },
-  {
-    "titre": "The Forever Purge",
-    "date": "2021",
-    "imdb": "5.7"
-  },
-  {
-    "titre": "xXx: State of the Union",
-    "date": "2005",
-    "imdb": "4.4"
-  },
-  {
-    "titre": "2 Fast 2 Furious",
-    "date": "2003",
-    "imdb": "5.9"
-  },
-  {
-    "titre": "Fast & Furious",
-    "date": "2009",
-    "imdb": "6.6"
-  },
-  {
-    "titre": "Fast Five",
-    "date": "2011",
-    "imdb": "7.3"
-  },
-  {
-    "titre": "Fast & Furious 6",
-    "date": "2013",
-    "imdb": "7.1"
-  },
-  {
-    "titre": "The Fast and the Furious: Tokyo Drift",
-    "date": "2006",
-    "imdb": "6.0"
-  },
-  {
-    "titre": "Furious 7",
-    "date": "2015",
-    "imdb": "7.1"
-  },
-  {
-    "titre": "The Fate of the Furious",
-    "date": "2017",
-    "imdb": "6.6"
-  },
-  {
-    "titre": "Fast & Furious: Hobbs & Shaw",
-    "date": "2019",
-    "imdb": "6.4"
-  },
-  {
-    "titre": "Transporter 2",
-    "date": "2005",
-    "imdb": "6.3"
-  },
-  {
-    "titre": "Transporter 3",
-    "date": "2008",
-    "imdb": "6.1"
-  },
-  {
-    "titre": "Little Man",
-    "date": "2006",
-    "imdb": "4.4"
-  },
-  {
-    "titre": "Taken 2",
-    "date": "2012",
-    "imdb": "6.2"
-  },
-  {
-    "titre": "Taken 3",
-    "date": "2014",
-    "imdb": "6.0"
-  },
-  {
-    "titre": "Paranormal Activity 2",
-    "date": "2010",
-    "imdb": "5.7"
-  },
-  {
-    "titre": "Paranormal Activity 3",
-    "date": "2011",
-    "imdb": "5.8"
-  },
-  {
-    "titre": "Paranormal Activity 4",
-    "date": "2012",
-    "imdb": "4.6"
-  },
-  {
-    "titre": "Paranormal Activity: The Marked Ones",
-    "date": "2014",
-    "imdb": "5.0"
-  },
-  {
-    "titre": "Paranormal Activity: The Ghost Dimension",
-    "date": "2015",
-    "imdb": "4.6"
-  },
-  {
-    "titre": "REC 3: Genesis",
-    "date": "2012",
-    "imdb": "5.0"
-  },
-  {
-    "titre": "The Incredible Hulk",
-    "date": "2008",
-    "imdb": "6.7"
-  },
-  {
-    "titre": "Thor",
-    "date": "2011",
-    "imdb": "7.0"
-  },
-  {
-    "titre": "Captain America: The First Avenger",
-    "date": "2011",
-    "imdb": "6.9"
-  },
-  {
-    "titre": "The Avengers",
-    "date": "2012",
-    "imdb": "8.0"
-  },
-  {
-    "titre": "Iron Man 3",
-    "date": "2013",
-    "imdb": "7.1"
-  },
-  {
-    "titre": "Thor: The Dark World",
-    "date": "2013",
-    "imdb": "6.9"
-  },
-  {
-    "titre": "Captain America: The Winter Soldier",
-    "date": "2014",
-    "imdb": "7.7"
-  },
-  {
-    "titre": "Guardians of the Galaxy",
-    "date": "2014",
-    "imdb": "8.0"
-  },
-  {
-    "titre": "Avengers: Age of Ultron",
-    "date": "2015",
-    "imdb": "7.3"
-  },
-  {
-    "titre": "Ant-Man",
-    "date": "2015",
-    "imdb": "7.3"
-  },
-  {
-    "titre": "Captain America: Civil War",
-    "date": "2016",
-    "imdb": "7.8"
-  },
-  {
-    "titre": "Thor: Ragnarok",
-    "date": "2017",
-    "imdb": "7.9"
-  },
-  {
-    "titre": "Avengers: Infinity War",
-    "date": "2018",
-    "imdb": "8.4"
-  },
-  {
-    "titre": "Avengers: Endgame",
-    "date": "2019",
-    "imdb": "8.4"
-  },
-  {
-    "titre": "Fantastic Four",
-    "date": "2005",
-    "imdb": "5.7"
-  },
-  {
-    "titre": "Fantastic Four: Rise of the Silver Surfer",
-    "date": "2007",
-    "imdb": "5.6"
-  },
-  {
-    "titre": "Rise of the Planet of the Apes",
-    "date": "2011",
-    "imdb": "7.6"
-  },
-  {
-    "titre": "Dawn of the Planet of the Apes",
-    "date": "2014",
-    "imdb": "7.6"
-  },
-  {
-    "titre": "War for the Planet of the Apes",
-    "date": "2017",
-    "imdb": "7.4"
-  },
-  {
-    "titre": "The Human Centipede II (Full Sequence)",
-    "date": "2011",
-    "imdb": "3.8"
-  },
-  {
-    "titre": "The Human Centipede III (Final Sequence)",
-    "date": "2015",
-    "imdb": "2.7"
-  },
-  {
-    "titre": "Home Alone 2: Lost in New York",
-    "date": "1992",
-    "imdb": "6.7"
-  },
-  {
-    "titre": "Night at the Museum: Battle of the Smithsonian",
-    "date": "2009",
-    "imdb": "6.0"
-  },
-  {
-    "titre": "Night at the Museum: Secret of the Tomb",
-    "date": "2014",
-    "imdb": "6.2"
-  },
-  {
-    "titre": "Jurassic World",
-    "date": "2015",
-    "imdb": "7.0"
-  },
-  {
-    "titre": "Jurassic World: Fallen Kingdom",
-    "date": "2018",
-    "imdb": "6.2"
-  },
-  {
-    "titre": "John Wick: Chapter 2",
-    "date": "2017",
-    "imdb": "7.5"
-  }
-]
+"titre": "Kill Bill",
+"imdb" : "8.1"
+},
+{
+"titre": "Transporter",
+"imdb" : "6.8"
+},
+{
+"titre": "Triple X",
+"imdb" : "5.9"
+},
+{
+"titre": "Fast & Furious",
+"imdb" : "6.8"
+},
+{
+"titre": "Ted",
+"imdb" : "6.9"
+},
+{
+"titre": "Catch Me If You Can",
+"imdb" : "8.1"
+},
+{
+"titre": "The Equalizer",
+"imdb" : "7.2"
+},
+{
+"titre": "Jason Bourne",
+"imdb" : "6.6"
+},
+{
+"titre": "Gone Girl",
+"imdb" : "8.1"
+},
+{
+"titre": "Taken",
+"imdb" : "7.8"
+},
+{
+"titre": "Noah",
+"imdb" : "5.8"
+},
+{
+"titre": "Lupin",
+"imdb" : "7.6"
+},
+{
+"titre": "Exodus",
+"imdb" : "6.0"
+},
+{
+"titre": "Arissala",
+"imdb" : "7.4"
+},
+{
+"titre": "Exorcist",
+"imdb" : "8.0"
+},
+{
+"titre": "Conjuring",
+"imdb" : "7.5"
+},
+{
+"titre": "Paranormal Activity",
+"imdb" : "6.3"
+},
+{
+"titre": "[Rec]",
+"imdb" : "7.4"
+},
+{
+"titre": "American Psycho",
+"imdb" : "7.6"
+},
+{
+"titre": "The Revenant",
+"imdb" : "8.0"
+},
+{
+"titre": "Don't Look Up",
+"imdb" : "7.2"
+},
+{
+"titre": "The Town",
+"imdb" : "7.5"
+},
+{
+"titre": "John Wick",
+"imdb" : "7.4"
+},
+{
+"titre": "Argo",
+"imdb" : "7.7"
+},
+{
+"titre": "Good Will Hunting",
+"imdb" : "8.3"
+},
+{
+"titre": "Joker",
+"imdb" : "8.4"
+},
+{
+"titre": "I Am Legend",
+"imdb" : "7.2"
+},
+{
+"titre": "Avengers",
+"imdb" : "8.0"
+},
+{
+"titre": "Back to the Future",
+"imdb" : "8.5"
+},
+{
+"titre": "Avatar",
+"imdb" : "7.8"
+},
+{
+"titre": "Terminator",
+"imdb" : "8.0"
+},
+{
+"titre": "Ex Machina",
+"imdb" : "7.7"
+},
+{
+"titre": "The Good, the Bad and the Ugly",
+"imdb" : "8.8"
+},
+{
+"titre": "Shaun of the Dead",
+"imdb" : "7.9"
+},
+{
+"titre": "Gran Torino",
+"imdb" : "8.1"
+},
+{
+"titre": "Revolutionary Road",
+"imdb" : "7.3"
+},
+{
+"titre": "127 Hours",
+"imdb" : "7.6"
+},
+{
+"titre": "Planet of the Apes",
+"imdb" : "8.0"
+},
+{
+"titre": "Saw",
+"imdb" : "7.6"
+},
+{
+"titre": "The Human Centipede",
+"imdb" : "4.4"
+},
+{
+"titre": "Home Alone",
+"imdb" : "7.6"
+},
+{
+"titre": "Hacksaw Ridge",
+"imdb" : "8.1"
+},
+{
+"titre": "Django Unchained",
+"imdb" : "8.4"
+},
+{
+"titre": "21 Jump Street",
+"imdb" : "7.2"
+},
+{
+"titre": "22 Jump Street",
+"imdb": "7.0"
+},
+{
+"titre": "The Intouchables",
+"imdb": "8.5"
+},
+{
+"titre": "Whiplash",
+"imdb": "8.5"
+},
+{
+"titre": "Requiem for a Dream",
+"imdb": "8.3"
+},
+{
+"titre": "Parasite",
+"imdb": "8.6"
+},
+{
+"titre": "Coco",
+"imdb": "8.4"
+},
+{
+"titre": "Premonition",
+"imdb": "5.9"
+},
+{
+"titre": "Chucky",
+"imdb": "6.6"
+},
+{
+"titre": "Annabelle",
+"imdb": "5.4"
+},
+{
+"titre": "The Karate Kid",
+"imdb": "7.3"
+},
+{
+"titre": "Letters from Iwo Jima",
+"imdb": "7.8"
+},
+{
+"titre": "The Bridge on the River Kwai",
+"imdb": "8.1"
+},
+{
+"titre": "Cast Away",
+"imdb": "7.8"
+},
+{
+"titre": "Innocent",
+"imdb": ""
+},
+{
+"titre": "Beasts of No Nation",
+"imdb": "7.7"
+},
+{
+"titre": "American Sniper",
+"imdb": "7.3"
+},
+{
+"titre": "Undisputed",
+"imdb": "6.2"
+},
+{
+"titre": "Focus",
+"imdb": "6.6"
+},
+{
+"titre": "Meet the Parents",
+"imdb": "7.0"
+},
+{
+"titre": "Hancock",
+"imdb": "6.4"
+},
+{
+"titre": "I, Robot",
+"imdb": "7.1"
+},
+{
+"titre": "Bad Boys for Life",
+"imdb": "6.6"
+},
+{
+"titre": "Men in Black",
+"imdb": "7.3"
+},
+{
+"titre": "Suicide Squad",
+"imdb": "5.9"
+},
+{
+"titre": "Hachi: A Dog's Tale",
+"imdb": "8.1"
+},
+{
+"titre": "Pelé",
+"imdb": "7.3"
+},
+{
+"titre": "Silver Linings Playbook",
+"imdb": "7.7"
+},
+{
+"titre": "Night at the Museum",
+"imdb": "6.4"
+},
+{
+"titre": "The Grey",
+"imdb": "6.8"
+},
+{
+"titre": "Seven Years in Tibet",
+"imdb": "7.0"
+},
+{
+"titre": "Gandhi",
+"imdb": "8.0"
+},
+{
+"titre": "Mustang",
+"imdb": "7.6"
+},
+{
+"titre": "Edge of Tomorrow",
+"imdb": "7.9"
+},
+{
+"titre": "Jerry Maguire",
+"imdb": "7.3"
+},
+{
+"titre": "Oblivion",
+"imdb": "7.0"
+},
+{
+"titre": "2012",
+"imdb": "5.8"
+},
+{
+"titre": "Spider-Man",
+"imdb": "7.3"
+},
+{
+"titre": "La Grande Vadrouille",
+"imdb": "8.0"
+},
+{
+"titre": "Le Gendarme de Saint-Tropez",
+"imdb": "6.5"
+},
+{
+"titre": "Astérix and Obélix",
+"imdb": "5.9"
+},
+{
+"titre": "The Battle of Algiers",
+"imdb": "8.1"
+},
+{
+"titre": "The Terminal",
+"imdb": "7.3"
+},
+{
+"titre": "Captain Phillips",
+"imdb": "7.8"
+},
+{
+"titre": "Mad Max: Fury Road",
+"imdb": "8.1"
+},
+{
+"titre": "La Haine",
+"imdb": "8.1"
+},
+{
+"titre": "Minority Report",
+"imdb": "7.6"
+},
+{
+"titre": "Split",
+"imdb": "7.3"
+},
+{
+"titre": "Tarzan",
+"imdb": "7.3"
+},
+{
+"titre": "Charlie and the Chocolate Factory",
+"imdb": "6.6"
+},
+{
+"titre": "Deadpool",
+"imdb": "8.0"
+},
+{
+"titre": "The Accused",
+"imdb": "8.1"
+},
+{
+"titre": "Mommy",
+"imdb": "8.1"
+},
+{
+"titre": "Le Crocodile du Botswanga",
+"imdb": "5.6"
+},
+{
+"titre": "The Grand Budapest Hotel",
+"imdb": "8.1"
+},
+{
+"titre": "Dallas Buyers Club",
+"imdb": "8.0"
+},
+{
+"titre": "Nightcrawler",
+"imdb": "7.8"
+},
+{
+"titre": "Mary Poppins",
+"imdb": "7.8"
+},
+{
+"titre": "Fury",
+"imdb": "7.6"
+},
+{
+"titre": "Captain America",
+"imdb": "6.9"
+},
+{
+"titre": "Godzilla",
+"imdb": "6.4"
+},
+{
+"titre": "Timbuktu",
+"imdb": "7.2"
+},
+{
+"titre": "The Labyrinth",
+"imdb": "7.4"
+},
+{
+"titre": "John Wick",
+"imdb": "7.4"
+},
+{
+"titre": "Nebraska",
+"imdb": "7.7"
+},
+{
+"titre": "The Imitation Game",
+"imdb": "8.0"
+},
+{
+"titre": "Thor",
+"imdb": "7.0"
+},
+{
+"titre": "Babysitting",
+"imdb": "6.8"
+},
+{
+"titre": "The Martian",
+"imdb": "8.0"
+},
+{
+"titre": "Inside Out",
+"imdb": "8.1"
+},
+{
+"titre": "007",
+"imdb": "7.2"
+},
+{
+"titre": "Invincible",
+"imdb": "7.1"
+},
+{
+"titre": "Son of Saul",
+"imdb": "7.5"
+},
+{
+"titre": "Ant-Man",
+"imdb": "7.3"
+},
+{
+"titre": "Sicario",
+"imdb": "7.6"
+},
+{
+"titre": "The Theory of Everything",
+"imdb": "7.7"
+},
+{
+"titre": "Fifty Shades of Grey",
+"imdb": "4.1"
+},
+{
+"titre": "Fifty Shades Darker",
+"imdb": "4.6"
+},
+{
+"titre": "Fifty Shades Freed",
+"imdb": "4.5"
+},
+{
+"titre": "365 Days",
+"imdb": "3.2"
+},
+{
+"titre": "American Pie",
+"imdb": "7.0"
+},
+{
+"titre": "Up",
+"imdb": "8.2"
+},
+{
+"titre": "Indiana Jones",
+"imdb": "8.4"
+},
+{
+"titre": "The Truman Show",
+"imdb": "8.1"
+},
+{
+"titre": "Monsters, Inc.",
+"imdb": "8.0"
+},
+{
+"titre": "Jaws",
+"imdb": "8.0"
+},
+{
+"titre": "Rocky",
+"imdb": "8.1"
+},
+{
+"titre": "Ratatouille",
+"imdb": "8.0"
+},
+{
+"titre": "Logan",
+"imdb": "8.1"
+},
+{
+"titre": "The Incredibles",
+"imdb": "8.0"
+},
+{
+"titre": "Pirates of the Caribbean",
+"imdb": "8.0"
+},
+{
+"titre": "Despicable Me",
+"imdb": "7.6"
+},
+{
+"titre": "Twilight",
+"imdb": "5.2"
+},
+{
+"titre": "The Mask",
+"imdb": "6.9"
+},
+{
+"titre": "Ace Ventura",
+"imdb": "6.9"
+},
+{
+"titre": "Dumb and Dumber",
+"imdb": "7.3"
+},
+{
+"titre": "Bruce Almighty",
+"imdb": "6.7"
+},
+{
+"titre": "Norbit",
+"imdb": "4.0"
+},
+{
+"titre": "Coming to America",
+"imdb": "7.0"
+},
+{
+"titre": "Doctor Dolittle",
+"imdb": "5.4"
+},
+{
+"titre": "Mulan",
+"imdb": "7.6"
+},
+{
+"titre": "Now You See Me",
+"imdb": "7.2"
+},
+{
+"titre": "London Has Fallen",
+"imdb": "5.9"
+},
+{
+"titre": "The Fall of Hollywood",
+"imdb": ""
+},
+{
+"titre": "Zero Dark Thirty",
+"imdb": "7.4"
+},
+{
+"titre": "King Kong",
+"imdb": "7.2"
+},
+{
+"titre": "Godzilla vs. Kong",
+"imdb": "6.4"
+},
+{
+"titre": "Godzilla",
+"imdb": "6.4"
+},
+{
+"titre": "Iron Man",
+"imdb": "7.9"
+},
+{
+"titre": "Home Alone",
+"imdb": "7.6"
+},
+{
+"titre": "Gravity",
+"imdb": "7.7"
+},
+{
+"titre": "San Andreas",
+"imdb": "6.0"
+},
+{
+"titre": "Geostorm",
+"imdb": "5.3"
+},
+{
+"titre": "The Day After Tomorrow",
+"imdb": "6.4"
+},
+{
+"titre": "Deep Impact",
+"imdb": "6.2"
+},
+{
+"titre": "Hours",
+"imdb": "6.5"
+},
+{
+"titre": "Talláss",
+"imdb": ""
+},
+{
+"titre": "The Babysitter",
+"imdb": "6.3"
+},
+{
+"titre": "Riddick",
+"imdb": "6.4"
+},
+{
+"titre": "Rampage",
+"imdb": "6.1"
+},
+{
+"titre": "G.I. Joe: The Rise of Cobra",
+"imdb": "5.8"
+},
+{
+"titre": "Jumanji",
+"imdb": "7.0"
+},
+{
+"titre": "Mr. & Mrs. Smith",
+"imdb": "6.5"
+},
+{
+"titre": "The Tree of Life",
+"imdb": "6.8"
+},
+{
+"titre": "Man on Fire",
+"imdb": "7.7"
+},
+{
+"titre": "Flight",
+"imdb": "7.3"
+},
+{
+"titre": "2 Guns",
+"imdb": "6.7"
+},
+{
+"titre": "Johnny English",
+"imdb": "6.2"
+},
+{
+"titre": "Mr. Bean's Holiday",
+"imdb": "6.4"
+},
+{
+"titre": "Bean",
+"imdb": "6.4"
+},
+{
+"titre": "Transcendence",
+"imdb": "6.3"
+},
+{
+"titre": "Sleepy Hollow",
+"imdb": "7.3"
+},
+{
+"titre": "Sweeney Todd: The Demon Barber of Fleet Street",
+"imdb": "7.3"
+},
+{
+"titre": "Alice in Wonderland",
+"imdb": "6.4"
+},
+{
+"titre": "Midnight Express",
+"imdb": "7.6"
+},
+{
+"titre": "The Expendables",
+"imdb": "6.5"
+},
+{
+"titre": "Den of Thieves",
+"imdb": "7.0"
+},
+{
+"titre": "Nightcrawler",
+"imdb": "7.8"
+},
+{
+"titre": "The Platform",
+"imdb": "7.0"
+},
+{
+"titre": "The Last Stand",
+"imdb": "6.3"
+},
+{
+"titre": "Southpaw",
+"imdb": "7.4"
+},
+{
+"titre": "Lee Daniels' The Butler",
+"imdb": "7.2"
+},
+{
+"titre": "Hitman",
+"imdb": "6.3"
+},
+{
+"titre": "Darkest Hour",
+"imdb": "7.4"
+},
+{
+"titre": "The Battle of the Scheldt",
+"imdb": ""
+},
+{
+"titre": "Elysium",
+"imdb": "6.6"
+},
+{
+"titre": "District 13",
+"imdb": "7.2"
+},
+{
+"titre": "Chef",
+"imdb": "7.3"
+},
+{
+"titre": "The Impossible",
+"imdb": "7.6"
+},
+{
+"titre": "Les Kaïra",
+"imdb": "5.8"
+},
+{
+"titre": "Neuilly sa mère !",
+"imdb": "5.9"
+},
+{
+"titre": "Pattaya",
+"imdb": "4.8"
+},
+{
+"titre": "The Wave",
+"imdb": "6.7"
+},
+{
+"titre": "Hotel Transylvania",
+"imdb": "7.1"
+},
+{
+"titre": "Piranha 3D",
+"imdb": "5.4"
+},
+{
+"titre": "Rise of the Guardians",
+"imdb": "7.3"
+},
+{
+"titre": "Life of Pi",
+"imdb": "7.9"
+},
+{
+"titre": "Dunkirk",
+"imdb": "7.8"
+},
+{
+"titre": "The Casual Vacancy",
+"imdb": "6.6"
+},
+{
+"titre": "Loving Pablo",
+"imdb": "6.3"
+},
+{
+"titre": "The Little Prince",
+"imdb": "7.7"
+},
+{
+"titre": "Along with the Gods",
+"imdb": "7.3"
+},
+{
+"titre": "The Battle of the Scheldt",
+"imdb": ""
+},
+{
+"titre": "The Hunger Games: Catching Fire",
+"imdb": "7.5"
+},
+{
+"titre": "The Hunger Games: Mockingjay - Part 1",
+"imdb": "6.6"
+},
+{
+"titre": "The Hunger Games: Mockingjay - Part 2",
+"imdb": "6.5"
+},
+{
+"titre": "Divergent: Insurgent",
+"imdb": "6.2"
+},
+{
+"titre": "Divergent: Allegiant",
+"imdb": "5.7"
+},
+{
+"titre": "Back to the Future Part II",
+"imdb": "7.8"
+},
+{
+"titre": "Back to the Future Part III",
+"imdb": "7.4"
+},
+{
+"titre": "Scary Movie 2",
+"imdb": "5.3"
+},
+{
+"titre": "Scary Movie 3",
+"imdb": "5.5"
+},
+{
+"titre": "Scary Movie 4",
+"imdb": "5.1"
+},
+{
+"titre": "Scary Movie 5",
+"imdb": "3.5"
+},
+{
+"titre": "Casino Royale",
+"imdb": "8.0"
+},
+{
+"titre": "Quantum of Solace",
+"imdb": "6.6"
+},
+{
+"titre": "Skyfall",
+"imdb": "7.7"
+},
+{
+"titre": "Spectre",
+"imdb": "6.8"
+},
+{
+"titre": "Mission: Impossible II",
+"imdb": "6.1"
+},
+{
+"titre": "Mission: Impossible III",
+"imdb": "6.9"
+},
+{
+"titre": "Mission: Impossible - Ghost Protocol",
+"imdb": "7.4"
+},
+{
+"titre": "Mission: Impossible - Rogue Nation",
+"imdb": "7.4"
+},
+{
+"titre": "Mission: Impossible - Fallout",
+"imdb": "7.7"
+},
+{
+"titre": "The Purge: Anarchy",
+"imdb": "6.4"
+},
+{
+"titre": "The Purge: Election Year",
+"imdb": "6.0"
+},
+{
+"titre": "The First Purge",
+"imdb": "5.2"
+},
+{
+"titre": "The Forever Purge",
+"imdb": "5.7"
+},
+{
+"titre": "xXx: State of the Union",
+"imdb": "4.4"
+},
+{
+"titre": "2 Fast 2 Furious",
+"imdb": "5.9"
+},
+{
+"titre": "Fast & Furious",
+"imdb": "6.6"
+},
+{
+"titre": "Fast Five",
+"imdb": "7.3"
+},
+{
+"titre": "Fast & Furious 6",
+"imdb": "7.1"
+},
+{
+"titre": "The Fast and the Furious: Tokyo Drift",
+"imdb": "6.0"
+},
+{
+"titre": "Furious 7",
+"imdb": "7.1"
+},
+{
+"titre": "The Fate Of The Furious ",
+"imdb": "6.7"
+},
+{
+"titre": "Fast & Furious: Hobbs & Shaw ",
+"imdb": "6.4"
+},
+{
+"titre": "Transporter 2 ",
+"imdb": "6.3"
+},
+{
+"titre": "Transporter 3 ",
+"imdb": "6.1"
+},
+{
+"titre": "Little Man",
+"imdb": "4.4"
+},
+{
+"titre": "Taken 2",
+"imdb": "6.3"
+},
+{
+"titre": "Taken 3",
+"imdb": "6.0"
+},
+{
+"titre": "Paranormal Activity 2",
+"imdb": "5.6"
+},
+{
+"titre": "Paranormal Activity 3",
+"imdb": "5.8"
+},
+{
+"titre": "Paranormal Activity 4",
+"imdb": "4.6"
+},
+{
+"titre": "Paranormal Activity : The Marked Ones",
+"imdb": "5.0"
+},
+{
+"titre": "Paranormal Activity : The Ghost Dimension",
+"imdb": "4.6"
+},
+{
+"titre": "Rec 3 : Genesis",
+"imdb": "5.0"
+},
+{
+"titre": "The Incredible Hulk",
+"imdb": "6.7"
+},
+{
+"titre": "Thor",
+"imdb": "7.0"
+},
+{
+"titre": "Captain America: The First Avenger",
+"imdb": "6.9"
+},
+{
+"titre": "Marvel’s The Avengers ",
+"imdb": "8.0"
+},
+{
+"titre": "Iron Man 3",
+"imdb": "7.2"
+},
+{
+"titre": "Thor: The Dark World",
+"imdb": "6.9"
+},
+{
+"titre": "Captain America: The Winter Soldier",
+"imdb": "7.7"
+},
+{
+"titre": "Guardians of the Galaxy",
+"imdb": "8.0"
+},
+{
+"titre": "Avengers: Age of Ultron",
+"imdb": "7.3"
+},
+{
+"titre": "Ant-Man",
+"imdb": "7.3"
+},
+{
+"titre": "Captain America: Civil War",
+"imdb": "7.8"
+},
+{
+"titre": "Thor: Ragnarok",
+"imdb": "7.9"
+},
+{
+"titre": "Avengers: Infinity War",
+"imdb": "8.4"
+},
+{
+"titre": "Avengers: Endgame",
+"imdb": "8.4"
+},
+{
+"titre": "Fantastic Four",
+"imdb": "5.7"
+},
+{
+"titre": "Fantastic Four: Rise of the Silver Surfer",
+"imdb": "5.6"
+},
+{
+"titre": "Rise of the Planet of the Apes",
+"imdb": "7.6"
+},
+{
+"titre": "Dawn of the Planet of the Apes",
+"imdb": "7.6"
+},
+{
+"titre": "War for the Planet of the Apes",
+"imdb": "7.4"
+},
+{
+"titre": "The Human Centipede II",
+"imdb": "3.9"
+},
+{
+"titre": "The Human Centipede III",
+"imdb": "2.7"
+},
+{
+"titre": "Home Alone 2: Lost in New York",
+"imdb": "6.7"
+},
+{
+"titre": "Night at the Museum: Battle of the Smithsonian",
+"imdb": "6.0"
+},
+{
+"titre": "Night at the Museum: Secret of the Tomb",
+"imdb": "6.2"
+},
+{
+"titre": "Jurassic World ",
+"imdb": "7.0"
+},
+{
+"titre": "Jurassic World: Fallen Kingdom ",
+"imdb": "6.2"
+},
+{
+"titre": "John Wick 2 ",
+"imdb": "7.5"
+}
+];
 function rechercher() {
   var recherche = document.getElementById('rechercheInput').value.toLowerCase();
   listeFilms.innerHTML = '';
@@ -2015,13 +1654,10 @@ var titleElement = document.createElement('h2');
       titleElement.textContent = film.titre;
       var imdbElement = document.createElement('p');
       imdbElement.classList.add('film-imdb');
-      imdbElement.textContent = 'Note : ' + film.imdb;
-var detailsElement = document.createElement('p');
-      detailsElement.classList.add('film-details');
-      detailsElement.textContent = 'Date de sortie : ' + film.date;
+      imdbElement.textContent = 'Note : ' + film.imdb;;
+      var infoIcon = document.createElement('img');
 li.appendChild(titleElement);
 li.appendChild(imdbElement);
-      li.appendChild(detailsElement);
       listeFilms.appendChild(li);
     }
   }
@@ -2029,13 +1665,6 @@ li.appendChild(imdbElement);
 function triParTitre() {
   films.sort(function(a, b) {
     return a.titre.localeCompare(b.titre);
-  });
-  afficherFilms();
-}
-
-function triParDate() {
-  films.sort(function(a, b) {
-    return a.date.localeCompare(b.date);
   });
   afficherFilms();
 }
@@ -2069,21 +1698,29 @@ function afficherFilms() {
     var titleElement = document.createElement('a');
     titleElement.classList.add('film-title');
     titleElement.textContent = film.titre;
-    titleElement.href = film.lien;
-    titleElement.target = "_blank";
-    var detailsElement = document.createElement('p');
-    detailsElement.classList.add('film-details');
-    detailsElement.textContent = 'Date de sortie : ' + film.date;
     var imdbElement = document.createElement('p');
     imdbElement.classList.add('film-imdb');
     imdbElement.textContent = 'Note : ' + film.imdb;
-
+    
+    var infoIcon = document.createElement('img');
+    infoIcon.classList.add('film-info');
+    infoIcon.src = 'info.png';
+    infoIcon.alt = 'Info';
+    infoIcon.setAttribute('data-link', film.lien); 
+    infoIcon.title = 'Description';
+    
+    infoIcon.addEventListener('click', function() {
+      var link = this.getAttribute('data-link');
+      window.open(link, '_blank');
+    });
+    
     li.appendChild(titleElement);
     li.appendChild(imdbElement);
-    li.appendChild(detailsElement);
+    li.appendChild(infoIcon);
     listeFilms.appendChild(li);
   }
 }
+
 
 afficherFilms();
 var boutonHaut = document.getElementById("bouton-haut");
