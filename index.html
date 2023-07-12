@@ -187,6 +187,10 @@
     cursor: pointer;
   background-color: #ff0505;
 }
+.button-hover.active {
+  color: #fff;
+  background-color: #000;
+}
 #enjoy-section {
   position: fixed;
   bottom: -20px; /* Ajustez la distance depuis le bas de la page selon vos préférences */
@@ -214,7 +218,7 @@
   <img id="cinema-image" src="cinema.png" alt="Cinema Image">
   <div class="nav-bar">
     <button onclick="triParTitre()" onmouseover="this.classList.add('button-hover')" onmouseout="this.classList.remove('button-hover')">Trier par A-Z</button>
-    <button onclick="triParNote()" onmouseover="this.classList.add('button-hover')" onmouseout="this.classList.remove('button-hover')">Trier par note</button>    
+    <button id="bouton-tri-note" onclick="triParNote()" onmouseover="this.classList.add('button-hover')" onmouseout="this.classList.remove('button-hover')">Trier par note</button>
     <div class="search-container">
       <input type="text" id="rechercheInput" placeholder="Rechercher un film..." oninput="rechercher()">
       <label class="search-icon" for="rechercheInput"></label>
@@ -2315,6 +2319,19 @@ boutonPartage.addEventListener('click', function() {
   function remonterEnHaut() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
+  var boutonTriNote = document.getElementById('bouton-tri-note');
+var boutonTriTitre = document.getElementById('bouton-tri-titre');
+
+boutonTriNote.addEventListener('click', function() {
+  this.classList.add('active');
+  boutonTriTitre.classList.remove('active');
+});
+
+boutonTriTitre.addEventListener('click', function() {
+  this.classList.add('active');
+  boutonTriNote.classList.remove('active');
+});
+  
 </script>
 
 </body>
