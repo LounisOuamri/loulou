@@ -167,13 +167,15 @@
   transition: all 0.01s ease; 
   box-shadow: 0 0 70px rgba(247, 0, 255, 0.532);
   color: #ffffff;
-  text-shadow: 0px 0px 8px rgb(255, 255, 255);
 }
     #bouton-partage img {
       width: 16px;
       height: 16px;
       margin-right: 5px;
     }
+    #bouton-partage:hover img {
+    content: url('hover-partage.png');
+  }
 .image-background {
   position: fixed;
   top: 0;
@@ -256,7 +258,7 @@
   <ul id="listeFilms"></ul>
   <div id="bouton-haut" class="arrow-up"></div>
   <button id="bouton-partage">
-    <img src="logo-partage.png" alt="Logo Partage">
+    <img id="partage-icon" src="logo-partage.png" alt="Logo Partage">
     Partager
   </button>
   <div id="bouton-avis"> 
@@ -2489,6 +2491,15 @@ boutonPartage.addEventListener('click', function() {
     alert('Le lien a été copié dans le presse-papier.');
   });
 });
+var partageIcon = document.getElementById('partage-icon');
+
+  partageIcon.addEventListener('mouseenter', function() {
+    partageIcon.src = 'hover-partage.png';
+  });
+
+  partageIcon.addEventListener('mouseleave', function() {
+    partageIcon.src = 'logo-partage.png';
+  });
 </script>
 <script>
   window.addEventListener('scroll', function() {
