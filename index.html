@@ -2481,10 +2481,6 @@ function afficherFilms() {
   }
 }
 afficherFilms();
-var boutonHaut = document.getElementById("bouton-haut");
-boutonHaut.addEventListener("click", function() {
-  document.documentElement.scrollTop = 0;
-});
 var boutonPartage = document.getElementById('bouton-partage');
 boutonPartage.addEventListener('click', function() {
   var url = window.location.href;
@@ -2522,8 +2518,17 @@ var partageIcon = document.getElementById('partage-icon');
   }
 });
 function remonterEnHaut() {
-    window.scrollTo({ top: 0, behavior: 'smooth'});
-  }
+      var scrollStep = -window.scrollY / (500 / 15); // Vitesse de défilement (500px en 15ms)
+      var scrollInterval = setInterval(function() {
+        if (window.scrollY !== 0) {
+          window.scrollBy(0, scrollStep);
+        } else {
+          clearInterval(scrollInterval);
+        }
+      }, 12); // Intervalle de défilement (15ms)
+    }
+    var boutonHaut = document.getElementById("bouton-haut");
+    boutonHaut.addEventListener("click", remonterEnHaut);
 </script>
 </body>
 </html>
