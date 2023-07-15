@@ -162,17 +162,19 @@
   font-family: "SF", Arial, sans-serif;
 }
 #bouton-partage:hover {
-      background-color: #ebeaff;
+  background-image: linear-gradient(to right, rgb(104, 0, 250), rgba(0, 34, 255, 0.728));
       transform: scale(1.07); 
   transition: all 0.01s ease; 
   box-shadow: 0 0 70px rgba(247, 0, 255, 0.532);
+  color: #ffffff;
+  text-shadow: 0px 0px 8px rgb(255, 255, 255);
 }
     #bouton-partage img {
       width: 16px;
       height: 16px;
       margin-right: 5px;
     }
-    .image-background {
+.image-background {
   position: fixed;
   top: 0;
   left: 0;
@@ -254,7 +256,7 @@
   <ul id="listeFilms"></ul>
   <div id="bouton-haut" class="arrow-up"></div>
   <button id="bouton-partage">
-    <img src="logo_partage.png" alt="Logo Partage">
+    <img src="logo-partage.png" alt="Logo Partage">
     Partager
   </button>
   <div id="bouton-avis"> 
