@@ -78,9 +78,6 @@
     font-family: "SF", Arial, sans-serif;
     text-decoration: none;
   }
-  .film-title:hover {
-    text-shadow: 0px 0px 11px rgb(255, 255, 255);
-}
 .film-item {
   display: flex;
   align-items: center;
@@ -197,11 +194,6 @@
     width: 60px; 
     height: auto; 
   }
-.film-imdb:hover {
-  color: gold; 
-  transform: scale(1.02); 
-  transition: all 0.3s ease-in-out; 
-}
 .nav-bar button:hover {
   color: rgb(255, 255, 255); 
   background-image: linear-gradient(to right, rgb(104, 0, 250), rgba(0, 34, 255, 0.728));
@@ -236,8 +228,14 @@
 #bouton-avis:hover {
       transform: scale(1.2); 
   transition: all 0.1s linear; 
+}  .film-item:hover .film-imdb {
+    color: gold;
+    transform: scale(1.02);
+    transition: all 0.3s ease-in-out;
+  }
+  .film-item:hover .film-title {
+    text-shadow: 0px 0px 11px rgb(255, 255, 255);
 }
-
 </style>
   <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
 </head>
