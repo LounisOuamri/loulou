@@ -237,6 +237,49 @@
 font-size: 36px;
 transition: all 0.2s;
 }
+.phrase-en-bas {
+  font-size: 16px;
+  color: #d1d1d1;
+  text-align: left;
+  margin-top: -40px;
+}
+.reseaux-sociaux {
+  text-align: right;
+  margin-top: 20px;
+  margin-top:-6px;
+}
+
+.reseaux-sociaux a {
+  display: inline-block;
+  margin: 0 10px;
+}
+.reseaux-sociaux img {
+  width: 32px; 
+  height: 32px; 
+}
+.icone-conteneur {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 10px;
+  width: 50px; 
+  height: 50px; 
+  border-radius: 50%;
+  background-color: transparent;
+  border: 2px solid white;
+  overflow: hidden;
+}
+.icone-conteneur a {
+  display: block;
+  text-align: center;
+  line-height: 10px; 
+}
+.icone-conteneur:hover {
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.573), rgba(60, 0, 255, 0.514), rgba(194, 4, 252, 0.674));
+  border: 2px solid rgb(212, 212, 212);
+    transition: all 1s ease;
+}
+
 </style>
   <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
 </head>
@@ -263,6 +306,19 @@ transition: all 0.2s;
   <div id="bouton-avis"> 
     <a href="https://kbtnfxiwkik.typeform.com/to/mrjUEyVT" target="_blank"><img src="smile.png" alt="Icone Smile"></a>
   </div>
+  <div class="reseaux-sociaux">
+    <div class="icone-conteneur">
+    <a href="https://instagram.com/loulououamri?igshid=OGQ5ZDc2ODk2ZA==" target="_blank"><img src="insta.png" alt="Instagram"></a>
+  </div>
+  <div class="icone-conteneur">
+    <a href="mailto:lounisouamri1@gmail.com" target="_blank"><img src="gmail.png" alt="Gmail"></a>
+  </div>
+  <div class="icone-conteneur">
+    <a href="l0ul0u2747" target="_blank"><img src="discord.png" alt="Discord"></a>
+  </div>
+</div>
+  <p class="phrase-en-bas">Copyright © <u class="souligne">Lounis OUAMRI.</u> All rights reserved.</p>
+
   <script>
     var listeFilms = document.getElementById('listeFilms');
     var films = [
