@@ -2624,7 +2624,7 @@ if ('webkitSpeechRecognition' in window) {
   var recognition = new webkitSpeechRecognition();
   recognition.continuous = false;
   recognition.interimResults = false;
-  recognition.lang = 'fr-FR'; // Langue de reconnaissance (français dans cet exemple)
+  recognition.lang = 'fr-FR'; 
 
   searchVoiceButton.addEventListener('click', function() {
     recognition.start();
@@ -2636,7 +2636,7 @@ if ('webkitSpeechRecognition' in window) {
     rechercher();
   };
 } else {
-  searchVoiceButton.style.display = 'none'; // Désactiver le bouton si la reconnaissance vocale n'est pas prise en charge
+  searchVoiceButton.style.display = 'none';
 }
 
 </script>
