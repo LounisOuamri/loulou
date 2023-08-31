@@ -278,20 +278,6 @@ transition: all 0.2s;
   border: 2px solid rgb(212, 212, 212);
     box-shadow: 0 0 90px rgba(255, 255, 255, 0.37);
 }
-.search-voice-button {
-  position: absolute;
-  top: 50%;
-  right: -5px;
-  transform: translateY(-50%);
-  border: none;
-  cursor: pointer;
-  padding: 5px;
-  background-color: transparent;
-}
-.microphone-icon {
-  width: 18px;
-  height: 18px;
-}
 </style>
   <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
 </head>
@@ -306,9 +292,6 @@ transition: all 0.2s;
     <div class="search-container">
       <input type="text" id="rechercheInput" placeholder="Rechercher un film..." oninput="rechercher()">
       <label class="search-icon" for="rechercheInput"></label>
-      <button id="search-voice-button" class="search-voice-button">
-        <img src="micro.png" alt="Microphone" class="microphone-icon">
-      </button>
     </div>
 
   </div>
@@ -2618,27 +2601,7 @@ function remonterEnHaut() {
     }
     var boutonHaut = document.getElementById("bouton-haut");
     boutonHaut.addEventListener("click", remonterEnHaut);
-    var searchVoiceButton = document.getElementById('search-voice-button');
-
-if ('webkitSpeechRecognition' in window) {
-  var recognition = new webkitSpeechRecognition();
-  recognition.continuous = false;
-  recognition.interimResults = false;
-  recognition.lang = 'fr-FR'; // Langue de reconnaissance (français dans cet exemple)
-
-  searchVoiceButton.addEventListener('click', function() {
-    recognition.start();
-  });
-
-  recognition.onresult = function(event) {
-    var resultat = event.results[0][0].transcript;
-    document.getElementById('rechercheInput').value = resultat;
-    rechercher();
-  };
-} else {
-  searchVoiceButton.style.display = 'none'; // Désactiver le bouton si la reconnaissance vocale n'est pas prise en charge
-}
-
+    
 </script>
 </body>
 </html>
