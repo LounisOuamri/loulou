@@ -9,7 +9,6 @@
       padding: 11px;
       background-color: rgb(0, 0, 0);
       color: rgb(255, 255, 255);
-      cursor:none;
     }
     @font-face {
       font-family: "UNDERRATED-UltraBold Personal Use";
@@ -293,16 +292,6 @@ transition: all 0.2s;
   width: 18px;
   height: 18px;
 }
-.custom-cursor {
-    cursor: none; 
-    position: fixed;
-    width: 20px; 
-    height: 20px; 
-    background-image: url('cursor.png');
-    background-size: cover;
-    pointer-events: none; 
-    z-index: 9999; 
-        }
 
 </style>
   <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
@@ -2650,33 +2639,6 @@ if ('webkitSpeechRecognition' in window) {
 } else {
   searchVoiceButton.style.display = 'none';
 }
-document.addEventListener("DOMContentLoaded", function () {
-            var customCursor = document.createElement("img");
-            customCursor.src = "cursor.png"; 
-            customCursor.className = "custom-cursor";
-            document.body.appendChild(customCursor);
-
-            document.addEventListener("mousemove", function (e) {
-                customCursor.style.left = e.clientX + "px";
-                customCursor.style.top = e.clientY + "px";
-            });
-
-            
-            document.addEventListener("mouseover", function(e) {
-                var target = e.target;
-                var cursorStyle = getComputedStyle(target).cursor;
-                if (cursorStyle === "pointer"|| target.tagName === "INPUT"){
-                    customCursor.style.display = "none";
-                } else {
-                    customCursor.style.display = "block";
-                    
-                    var offsetX = 10; // Ajustez la valeur selon vos besoins
-                var offsetY = 10; // Ajustez la valeur selon vos besoins
-                customCursor.style.left = e.clientX - offsetX + "px";
-                customCursor.style.top = e.clientY - offsetY + "px";
-                }
-            });
-        });
 </script>
 </body>
 </html>
