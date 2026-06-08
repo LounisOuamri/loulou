@@ -307,6 +307,15 @@ transition: all 0.2s;
   width: 18px;
   height: 18px;
 }
+.bio {
+  text-align: center;
+  font-family: "SF", Arial, sans-serif;
+  font-size: 16px;   /* plus petit que le h1 */
+  font-weight: 400;  /* pas gras */
+  color: #cfcfcf;    /* gris léger */
+  margin-top: -10px; /* rapproche du titre */
+  margin-bottom: 25px;
+}
 
 </style>
   <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
@@ -315,7 +324,9 @@ transition: all 0.2s;
   <div class="image-background">
     <img src="back.jpg" alt="Background Image">
   </div>
-  <h1>LOULOU'S MOVIES</h1>
+  <h1>LOULOU'S MOVIES</h1><p class="bio">
+  A personal movie archive with ratings and trailers. Streaming is not included, sadly for you.
+</p>
   <div class="nav-bar">
 <button id="tri-titre" onclick="triParTitre()" onmouseover="this.classList.add('button-hover')" onmouseout="this.classList.remove('button-hover')">Trier par A-Z</button>
 <button id="tri-note" onclick="triParNote()" onmouseover="this.classList.add('button-hover')" onmouseout="this.classList.remove('button-hover')">Trier par note</button>
