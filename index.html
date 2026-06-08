@@ -2912,7 +2912,7 @@ var boutonPartage = document.getElementById('bouton-partage');
 boutonPartage.addEventListener('click', function() {
   var url = window.location.href;
   navigator.clipboard.writeText(url).then(function() {
-    alert('Le lien a été copié dans le presse-papier.');
+    alert('The link has been copied to the clipboard.');
   });
 });
 var partageIcon = document.getElementById('partage-icon');
