@@ -320,7 +320,35 @@ transition: all 0.2s;
 
   text-align: center;
 }
+.total-films {
+    font-size: 22px;
+    color: #fff;
+    text-align: left;
+    margin: 20px 0;
+    font-weight: bold;
+}
+.total-films::after {
+    content: "Without counting the ones I forgot because of my terrible memory 😅";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -35px;
 
+    background: rgba(0,0,0,0.9);
+    color: white;
+    padding: 6px 10px;
+    border-radius: 8px;
+
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s;
+
+    pointer-events: none;
+}
+
+.total-films:hover::after {
+    opacity: 1;
+}
 </style>
   <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
 </head>
@@ -425,6 +453,11 @@ transition: all 0.2s;
 "titre": "Heat",
 "imdb" : "8.2",
 "lien": "https://www.imdb.com/title/tt0113277/"
+},
+{
+"titre": "Project Hail Mary",
+"imdb" : "8.3",
+"lien": "https://www.imdb.com/fr/title/tt12042730/"
 },
 {
 "titre": "Gladiator",
@@ -1150,6 +1183,16 @@ transition: all 0.2s;
 "titre": "Revolutionary Road",
 "imdb" : "7.3",
 "lien": "https://www.imdb.com/title/tt0959337/"
+},
+{
+"titre": "Dune: Part One",
+"imdb" : "8.0",
+"lien": "https://www.imdb.com/fr/title/tt1160419/?ref_=fn_t_2"
+},
+{
+"titre": "Dune: Part Two",
+"imdb" : "8.4",
+"lien": "https://www.imdb.com/fr/title/tt15239678/?ref_=fn_t_1"
 },
 {
 "titre": "127 Hours",
@@ -2027,6 +2070,11 @@ transition: all 0.2s;
 "lien": "https://www.imdb.com/title/tt0073195/"
 },
 {
+"titre": "The Ritual",
+"imdb": "6.4",
+"lien": "https://www.imdb.com/fr/title/tt5638642/"
+},
+{
 "titre": "Rocky",
 "imdb": "8.1",
 "lien": "https://www.imdb.com/title/tt0075148/"
@@ -2877,7 +2925,8 @@ function triParNote() {
   afficherFilms();
 }
 var totalFilmsElement = document.createElement('p');
-totalFilmsElement.textContent = 'Total  : ' + films.length;
+totalFilmsElement.classList.add('total-films');
+totalFilmsElement.textContent = 'Total : ' + films.length;
 document.body.insertBefore(totalFilmsElement, listeFilms);
 function afficherFilms() {
   listeFilms.innerHTML = '';
